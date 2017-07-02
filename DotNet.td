@@ -1,0 +1,338 @@
+{
+  "References": [
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test#//div[@class='content']",
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run#//div[@class='content']",
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#//div[@class='content']",
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack#//div[@class='content']",
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build#//div[@class='content']"
+  ],
+  "Name": "DotNet",
+  "OfficialUrl": "https://docs.microsoft.com/en-us/dotnet/core/tools/",
+  "IconClass": "fire",
+  "Tasks": [
+    {
+      "Help": "The <c>dotnet test</c> command is used to execute unit tests in a given project. Unit tests are console application projects that have dependencies on the unit test framework (for example, MSTest, NUnit, or xUnit) and the dotnet test runner for the unit testing framework. These are packaged as NuGet packages and are restored as ordinary dependencies for the project.",
+      "Postfix": "Test",
+      "DefiniteArgument": "test",
+      "SettingsClass": {
+        "BaseClass": "DotNetSettings",
+        "Properties": [
+          {
+            "Name": "ProjectFile",
+            "Type": "string",
+            "Format": "{value}",
+            "Help": "Specifies a path to the test project. If omitted, it defaults to current directory."
+          },
+          {
+            "Name": "SettingsFile",
+            "Type": "string",
+            "Format": "--settings {value}",
+            "Help": "Settings to use when running tests."
+          },
+          {
+            "Name": "ListTests",
+            "Type": "bool",
+            "Format": "--list-tests",
+            "Help": "List all of the discovered tests in the current project."
+          },
+          {
+            "Name": "Filter",
+            "Type": "string",
+            "Format": "--filter {value}",
+            "Help": "Filters out tests in the current project using the given expression. For more information, see the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test#filter-option-details\">Filter option details</a> section. For additional information and examples on how to use selective unit test filtering, see <a href=\"https://docs.microsoft.com/en-us/dotnet/core/testing/selective-unit-tests\">Running selective unit tests</a>."
+          },
+          {
+            "Name": "TestAdapterPath",
+            "Type": "string",
+            "Format": "--test-adapter-path {value}",
+            "Help": "Use the custom test adapters from the specified path in the test run."
+          },
+          {
+            "Name": "Logger",
+            "Type": "string",
+            "Format": "--logger {value}",
+            "Help": "Specifies a logger for test results."
+          },
+          {
+            "Name": "Configuration",
+            "Type": "string",
+            "Format": "--configuration {value}",
+            "Help": "Configuration under which to build. The default value is <c>Debug</c>, but your project's configuration could override this default SDK setting."
+          },
+          {
+            "Name": "Framework",
+            "Type": "string",
+            "Format": "--framework {value}",
+            "Help": "Looks for test binaries for a specific <a href=\"https://docs.microsoft.com/en-us/dotnet/standard/frameworks\">framework</a>."
+          },
+          {
+            "Name": "Output",
+            "Type": "string",
+            "Format": "--output {value}",
+            "Help": "Directory in which to find the binaries to run."
+          },
+          {
+            "Name": "DiagnosticsFile",
+            "Type": "string",
+            "Format": "--diag {value}",
+            "Help": "Enables diagnostic mode for the test platform and write diagnostic messages to the specified file."
+          },
+          {
+            "Name": "NoBuild",
+            "Type": "bool",
+            "Format": "--no-build",
+            "Help": "Does not build the test project prior to running it."
+          },
+          {
+            "Name": "Verbosity",
+            "Type": "DotNetVerbosity?",
+            "Format": "--verbosity {value}",
+            "Help": "Sets the verbosity level of the command. Allowed values are <c>q[uiet]</c>, <c>m[inimal]</c>, <c>n[ormal]</c>, <c>d[etailed]</c>, and <c>diag[nostic]</c>."
+          }
+        ]
+      }
+    },
+    {
+      "Help": "<p>The <c>dotnet run</c> command provides a convenient option to run your application from the source code with one command. It's useful for fast iterative development from the command line. The command depends on the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build\"><c>dotnet build</c></a> command to build the code. Any requirements for the build, such as that the project must be restored first, apply to <c>dotnet run</c> as well.</p><p>Output files are written into the default location, which is <c>bin/&lt;configuration&gt;/&lt;target&gt;</c>. For example if you have a <c>netcoreapp1.0</c> application and you run <c>dotnet run</c>, the output is placed in <c>bin/Debug/netcoreapp1.0</c>. Files are overwritten as needed. Temporary files are placed in the <c>obj</c> directory.</p><p>If the project specifies multiple frameworks, executing <c>dotnet run</c> results in an error unless the <c>-f|--framework &lt;FRAMEWORK&gt;</c> option is used to specify the framework.</p><p>The <c>dotnet run</c> command is used in the context of projects, not built assemblies. If you're trying to run a framework-dependent application DLL instead, you must use <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet\">dotnet</a> without a command. For example, to run <c>myapp.dll</c>, use: <c>dotnet myapp.dll</c></p><p>For more information on the <c>dotnet</c> driver, see the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/index\">.NET Core Command Line Tools (CLI)</a> topic.</p><p>In order to run the application, the <c>dotnet run</c> command resolves the dependencies of the application that are outside of the shared runtime from the NuGet cache. Because it uses cached dependencies, it's not recommended to use <c>dotnet run</c> to run applications in production. Instead, <a href=\"https://docs.microsoft.com/en-us/dotnet/core/deploying/index\">create a deployment</a> using the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish\"><c>dotnet publish</c></a> command and deploy the published output.</p>",
+      "Postfix": "Run",
+      "DefiniteArgument": "run",
+      "SettingsClass": {
+        "BaseClass": "DotNetSettings",
+        "Properties": [
+          {
+            "Name": "Configuration",
+            "Type": "string",
+            "Format": "--configuration {value}",
+            "Help": "Configuration to use for building the project. The default value is Debug."
+          },
+          {
+            "Name": "Framework",
+            "Type": "string",
+            "Format": "--framework {value}",
+            "Help": "Builds and runs the app using the specified framework. The framework must be specified in the project file."
+          },
+          {
+            "Name": "ProjectFile",
+            "Type": "string",
+            "Format": "--project {value}",
+            "Help": "Specifies the path and name of the project file. (See the NOTE.) It defaults to the current directory if not specified."
+          }
+        ]
+      }
+    },
+    {
+      "Help": "<p>The <c>dotnet restore</c> command uses NuGet to restore dependencies as well as project-specific tools that are specified in the project file. By default, the restoration of dependencies and tools are performed in parallel.</p><p>In order to restore the dependencies, NuGet needs the feeds where the packages are located. Feeds are usually provided via the <i>NuGet.config</i> configuration file. A default configuration file is provided when the CLI tools are installed. You specify additional feeds by creating your own <i>NuGet.config</i> file in the project directory. You also specify additional feeds per invocation at a command prompt.</p><p>For dependencies, you specify where the restored packages are placed during the restore operation using the <c>--packages</c> argument. If not specified, the default NuGet package cache is used, which is found in the <c>.nuget/packages</c> directory in the user's home directory on all operating systems (for example, <i>/home/user1</i> on Linux or <i>C:\\Users\\user1</i> on Windows).</p><p>For project-specific tooling, <c>dotnet restore</c> first restores the package in which the tool is packed, and then proceeds to restore the tool's dependencies as specified in its project file.</p><p>The behavior of the <c>dotnet restore</c> command is affected by some of the settings in the <i>Nuget.Config</i> file, if present. For example, setting the <c>globalPackagesFolder</c> in <i>NuGet.Config</i> places the restored NuGet packages in the specified folder. This is an alternative to specifying the <c>--packages</c> option on the <c>dotnet restore</c> command. For more information, see the <a href=\"https://docs.microsoft.com/nuget/schema/nuget-config-file\">NuGet.Config reference</a>.</p>",
+      "Postfix": "Restore",
+      "DefiniteArgument": "restore",
+      "SettingsClass": {
+        "BaseClass": "DotNetSettings",
+        "Properties": [
+          {
+            "Name": "ProjectFile",
+            "Type": "string",
+            "Format": "{value}",
+            "CreateOverload": true,
+            "Help": "Optional path to the project file to restore."
+          },
+          {
+            "Name": "Source",
+            "Type": "string",
+            "Format": "--source {value}",
+            "Help": "Specifies a NuGet package source to use during the restore operation. This overrides all of the sources specified in the <i>NuGet.config</i> file(s). Multiple sources can be provided by specifying this option multiple times."
+          },
+          {
+            "Name": "Runtimes",
+            "Type": "List<string>",
+            "Format": "--runtime {value}",
+            "Help": "Specifies a runtime for the package restore. This is used to restore packages for runtimes not explicitly listed in the <c>&lt;RuntimeIdentifiers&gt;</c> tag in the <i>.csproj</i> file. For a list of Runtime Identifiers (RIDs), see the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/rid-catalog\">RID catalog</a>. Provide multiple RIDs by specifying this option multiple times."
+          },
+          {
+            "Name": "PackageDirectory",
+            "Type": "string",
+            "Format": "--packages {value}",
+            "Help": "Specifies the directory for restored packages."
+          },
+          {
+            "Name": "DisableParallel",
+            "Type": "bool",
+            "Format": "--disable-parallel",
+            "Help": "Disables restoring multiple projects in parallel."
+          },
+          {
+            "Name": "NoCache",
+            "Type": "bool",
+            "Format": "--no-cache",
+            "Help": "Specifies to not cache packages and HTTP requests."
+          },
+          {
+            "Name": "ConfigFile",
+            "Type": "string",
+            "Format": "--configfile {value}",
+            "Help": "The NuGet configuration file (<i>NuGet.config</i>) to use for the restore operation."
+          },
+          {
+            "Name": "IgnoreFailedSources",
+            "Type": "bool",
+            "Format": "--ignore-failed-sources",
+            "Help": "Only warn about failed sources if there are packages meeting the version requirement."
+          },
+          {
+            "Name": "NoDependencies",
+            "Type": "bool",
+            "Format": "--no-dependencies",
+            "Help": "When restoring a project with project-to-project (P2P) references, restore the root project and not the references."
+          },
+          {
+            "Name": "Verbosity",
+            "Type": "DotNetVerbosity?",
+            "Format": "--verbosity {value}",
+            "Help": "Sets the verbosity level of the command. Allowed values are <c>q[uiet]</c>, <c>m[inimal]</c>, <c>n[ormal]</c>, <c>d[etailed]</c>, and <c>diag[nostic]</c>."
+          }
+        ]
+      }
+    },
+    {
+      "Help": "<p>The <c>dotnet pack</c> command builds the project and creates NuGet packages. The result of this command is a NuGet package. If the <c>--include-symbols</c> option is present, another package containing the debug symbols is created.</p><p>NuGet dependencies of the packed project are added to the <i>.nuspec</i> file, so they're properly resolved when the package is installed. Project-to-project references aren't packaged inside the project. Currently, you must have a package per project if you have project-to-project dependencies.</p><p>By default, <c>dotnet pack</c> builds the project first. If you wish to avoid this behavior, pass the <c>--no-build</c> option. This is often useful in Continuous Integration (CI) build scenarios where you know the code was previously built.</p><p>You can provide MSBuild properties to the <c>dotnet pack</c> command for the packing process. For more information, see <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties\">NuGet metadata properties</a> and the <a href=\"https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference\">MSBuild Command-Line Reference</a>.</p>",
+      "Postfix": "Pack",
+      "DefiniteArgument": "pack",
+      "SettingsClass": {
+        "BaseClass": "DotNetSettings",
+        "Properties": [
+          {
+            "Name": "Project",
+            "Type": "string",
+            "Format": "{value}",
+            "CreateOverload": true,
+            "Help": "The project to pack. It's either a path to a csproj file or to a directory. If omitted, it defaults to the current directory."
+          },
+          {
+            "Name": "OutputDirectory",
+            "Type": "string",
+            "Format": "--output {value}",
+            "Help": "Places the built packages in the directory specified."
+          },
+          {
+            "Name": "NoBuild",
+            "Type": "bool",
+            "Format": "--no-build",
+            "Help": "Don't build the project before packing."
+          },
+          {
+            "Name": "IncludeSymbols",
+            "Type": "bool",
+            "Format": "--include-symbols",
+            "Help": "Generates the symbols <c>nupkg</c>."
+          },
+          {
+            "Name": "IncludeSource",
+            "Type": "bool",
+            "Format": "--include-source",
+            "Help": "Includes the source files in the NuGet package. The sources files are included in the <c>src</c> folder within the <c>nupkg</c>."
+          },
+          {
+            "Name": "Configuration",
+            "Type": "string",
+            "Format": "--configuration {value}",
+            "Help": "Configuration to use when building the project. If not specified, configuration defaults to <c>Debug</c>."
+          },
+          {
+            "Name": "VersionSuffix",
+            "Type": "string",
+            "Format": "--version-suffix {value}",
+            "Help": "Defines the value for the <c>$(VersionSuffix)</c> MSBuild property in the project."
+          },
+          {
+            "Name": "Serviceable",
+            "Type": "bool",
+            "Format": "--serviceable",
+            "Help": "Sets the serviceable flag in the package. For more information, see <a href=\"https://aka.ms/nupkgservicing\">.NET Blog: .NET 4.5.1 Supports Microsoft Security Updates for .NET NuGet Libraries</a>."
+          },
+          {
+            "Name": "Verbostiy",
+            "Type": "DotNetVerbosity?",
+            "Format": "--verbosity {value}",
+            "Help": "Sets the verbosity level of the command. Allowed values are <c>q[uiet]</c>, <c>m[inimal]</c>, <c>n[ormal]</c>, <c>d[etailed]</c>, and <c>diag[nostic]</c>."
+          }
+        ]
+      }
+    },
+    {
+      "Help": "<p>The <c>dotnet build</c> command builds the project and its dependencies into a set of binaries. The binaries include the project's code in Intermediate Language (IL) files with a <i>.dll</i> extension and symbol files used for debugging with a <i>.pdb</i> extension. A dependencies JSON file (<i>.deps.json</i>) is produced that lists the dependencies of the application. A <i>.runtimeconfig.json</i> file is produced, which specifies the shared runtime and its version for the application.</p><p>If the project has third-party dependencies, such as libraries from NuGet, they're resolved from the NuGet cache and aren't available with the project's built output. With that in mind, the product of <c>dotnet build</c>d isn't ready to be transferred to another machine to run. This is in contrast to the behavior of the .NET Framework in which building an executable project (an application) produces output that's runnable on any machine where the .NET Framework is installed. To have a similar experience with .NET Core, you use the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish\"><c>dotnet publish</c></a> command. For more information, see <a href=\"https://docs.microsoft.com/en-us/dotnet/core/deploying/index\">.NET Core Application Deployment</a>.</p><p>Building requires the <i>project.assets.json</i> file, which lists the dependencies of your application. The file is created when you execute <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore\"><c>dotnet restore</c></a> before building the project. Without the assets file in place, the tooling cannot resolve reference assemblies, which will result in errors.</p><p><c>dotnet build</c> uses MSBuild to build the project; thus, it supports both parallel and incremental builds. Refer to <a href=\"https://docs.microsoft.com/visualstudio/msbuild/incremental-builds\">Incremental Builds</a> for more information.</p><p>In addition to its options, the <c>dotnet build</c> command accepts MSBuild options, such as <c>/p</c> for setting properties or <c>/l</c> to define a logger. Learn more about these options in the <a href=\"https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference\">MSBuild Command-Line Reference</a>.</p>",
+      "Postfix": "Build",
+      "DefiniteArgument": "build",
+      "SettingsClass": {
+        "BaseClass": "DotNetSettings",
+        "Properties": [
+          {
+            "Name": "ProjectFile",
+            "Type": "string",
+            "Format": "{value}",
+            "CreateOverload": true,
+            "Help": "The project file to build. If a project file is not specified, MSBuild searches the current working directory for a file that has a file extension that ends in proj and uses that file."
+          },
+          {
+            "Name": "OutputDirectory",
+            "Type": "string",
+            "Format": "--output {value}",
+            "Help": "Directory in which to place the built binaries. You also need to define <c>--framework</c> when you specify this option."
+          },
+          {
+            "Name": "Framework",
+            "Type": "string",
+            "Format": "--framework {value}",
+            "Help": "Compiles for a specific <a href=\"https://docs.microsoft.com/en-us/dotnet/standard/frameworks\">framework</a>. The framework must be defined in the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/tools/csproj\">project file</a>."
+          },
+          {
+            "Name": "Configuration",
+            "Type": "string",
+            "Format": "--configuration {value}",
+            "Help": "Defines the build configuration. If omitted, the build configuration defaults to <c>Debug</c>. Use <c>Release</c> build a Release configuration."
+          },
+          {
+            "Name": "Runtime",
+            "Type": "string",
+            "Format": "--runtime {value}",
+            "Help": "Specifies the target runtime. For a list of Runtime Identifiers (RIDs), see the <a href=\"https://docs.microsoft.com/en-us/dotnet/core/rid-catalog\">RID catalog</a>."
+          },
+          {
+            "Name": "VersionSuffix",
+            "Type": "string",
+            "Format": "--version-suffix {value}",
+            "Help": "Defines the version suffix for an asterisk (<c>*</c>) in the version field of the project file. The format follows NuGet's version guidelines."
+          },
+          {
+            "Name": "NoIncremental",
+            "Type": "bool",
+            "Format": "--no-incremental",
+            "Help": "Marks the build as unsafe for incremental build. This turns off incremental compilation and forces a clean rebuild of the project's dependency graph."
+          },
+          {
+            "Name": "NoDependencies",
+            "Type": "bool",
+            "Format": "--no-dependencies",
+            "Help": "Ignores project-to-project (P2P) references and only builds the root project specified to build."
+          },
+          {
+            "Name": "Verbosity",
+            "Type": "DotNetVerbosity?",
+            "Format": "--verbosity {value}",
+            "Help": "Sets the verbosity level of the command. Allowed values are <c>q[uiet]</c>, <c>m[inimal]</c>, <c>n[ormal]</c>, <c>d[etailed]</c>, and <c>diag[nostic]</c>."
+          }
+        ]
+      }
+    }
+  ],
+  "DataClasses": [],
+  "Enumerations": [
+    {
+      "Name": "DotNetVerbosity",
+      "Values": [
+        "Quiet",
+        "Minimal",
+        "Normal",
+        "Detailed",
+        "Diagnostic"
+      ]
+    }
+  ]
+}

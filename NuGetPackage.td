@@ -1,7 +1,7 @@
 {
-  "Reference": {
-    "Url": "https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/master/docs/Schema/nuspec.md"
-  },
+  "References": [
+    "https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/master/docs/Schema/nuspec.md"
+  ],
   "Name": "NuGet",
   "OfficialUrl": "https://docs.microsoft.com/en-us/nuget/schema/nuspec",
   "Help": "A .nuspec file is an XML manifest that contains package metadata. This is used both to build the package and to provide information to consumers. The manifest is always included in a package.",

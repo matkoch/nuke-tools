@@ -1,0 +1,410 @@
+{
+  "References": [
+    "https://fsprojects.github.io/Paket/paket-update.html#//div[@id='main']",
+    "https://fsprojects.github.io/Paket/paket-restore.html#//div[@id='main']",
+    "https://fsprojects.github.io/Paket/paket-push.html#//div[@id='main']",
+    "https://fsprojects.github.io/Paket/paket-pack.html#//div[@id='main']"
+  ],
+  "Name": "Paket",
+  "OfficialUrl": "https://fsprojects.github.io/paket",
+  "Help": "<p>Paket is a dependency manager for .NET and mono projects, which is designed to work well with <a href=\"https://www.nuget.org/\">NuGet</a> packages and also enables referencing files directly from <a href=\"https://fsprojects.github.io/Paket/git-dependencies.html\">Git repositories</a> or any <a href=\"https://fsprojects.github.io/Paket/http-dependencies.html\">HTTP resource</a>. It enables precise and predictable control over what packages the projects within your application reference.</p><p>If you want to learn how to use Paket then read the <a href=\"https://fsprojects.github.io/Paket/getting-started.html\"><i>Getting started</i> tutorial</a> and take a look at the <a href=\"https://fsprojects.github.io/Paket/faq.html\">FAQs</a>.</p><p>If you are already using NuGet for package management in your solution then you can learn about the upgrade process in the <a href=\"https://fsprojects.github.io/Paket/getting-started.html#Automatic-NuGet-conversion\">convert from NuGet</a> section.</p>",
+  "PackageId": "Paket",
+  "PackageExecutable": "paket.exe",
+  "IconClass": "box",
+  "Tasks": [
+    {
+      "Postfix": "Update",
+      "DefiniteArgument": "update",
+      "SettingsClass": {
+        "Properties": [
+          {
+            "Name": "PackageId",
+            "Type": "string",
+            "Format": "nuget {value}",
+            "Help": "NuGet package id."
+          },
+          {
+            "Name": "PackageVersion",
+            "Type": "string",
+            "Format": "version {value}",
+            "Help": "Allows to specify version of the package."
+          },
+          {
+            "Name": "DependencyGroup",
+            "Type": "string",
+            "Format": "group {value}",
+            "Help": "Allows to specify the dependency group."
+          },
+          {
+            "Name": "Force",
+            "Type": "bool",
+            "Format": "--force",
+            "Help": "Forces the download and reinstallation of all packages."
+          },
+          {
+            "Name": "Redirects",
+            "Type": "bool",
+            "Format": "--redirects",
+            "Help": "Creates binding redirects for the NuGet packages."
+          },
+          {
+            "Name": "CreateNewBindingFiles",
+            "Type": "bool",
+            "Format": "--createnewbindingfiles",
+            "Help": "Creates binding redirect files if needed."
+          },
+          {
+            "Name": "CleanRedirects",
+            "Type": "bool",
+            "Format": "--clean-redirects",
+            "Help": "Removes all binding redirects that are not specified by Paket."
+          },
+          {
+            "Name": "NoInstall",
+            "Type": "bool",
+            "Format": "--no-install",
+            "Help": "Skips paket install process (patching of csproj, fsproj, ... files) after the generation of paket.lock file."
+          },
+          {
+            "Name": "KeepMajor",
+            "Type": "bool",
+            "Format": "--keep-major",
+            "Help": "Allows only updates that are not changing the major version of the NuGet packages."
+          },
+          {
+            "Name": "KeepMinor",
+            "Type": "bool",
+            "Format": "--keep-minor",
+            "Help": "Allows only updates that are not changing the minor version of the NuGet packages."
+          },
+          {
+            "Name": "KeepPatch",
+            "Type": "bool",
+            "Format": "--keep-patch",
+            "Help": "Allows only updates that are not changing the patch version of the NuGet packages."
+          },
+          {
+            "Name": "Filter",
+            "Type": "bool",
+            "Format": "--filter",
+            "Help": "Treat the nuget parameter as a regex to filter packages rather than an exact match."
+          },
+          {
+            "Name": "TouchAffectedRefs",
+            "Type": "bool",
+            "Format": "--touch-affected-refs",
+            "Help": "Touches project files referencing packages which are affected, to help incremental build tools detecting the change."
+          },
+          {
+            "Name": "Verbose",
+            "Type": "bool",
+            "Format": "--verbose",
+            "Help": "Enable verbose console output for the paket process."
+          },
+          {
+            "Name": "LogFile",
+            "Type": "string",
+            "Format": "--log-file {value}",
+            "Help": "Specify a log file for the paket process."
+          },
+          {
+            "Name": "Silent",
+            "Type": "bool",
+            "Format": "--silent",
+            "Help": "Suppress console output for the paket process."
+          },
+          {
+            "Name": "ShowVersion",
+            "Type": "bool",
+            "Format": "--version",
+            "Help": "Display the version."
+          },
+          {
+            "Name": "FromBootstrapper",
+            "Type": "bool",
+            "Format": "--from-bootstrapper",
+            "Help": "Call coming from the '--run' feature of the bootstrapper."
+          }
+        ]
+      }
+    },
+    {
+      "Postfix": "Restore",
+      "DefiniteArgument": "restore",
+      "SettingsClass": {
+        "Properties": [
+          {
+            "Name": "Force",
+            "Type": "bool",
+            "Format": "--force",
+            "Help": "Forces the download of all packages."
+          },
+          {
+            "Name": "OnlyReferenced",
+            "Type": "bool",
+            "Format": "--only-referenced",
+            "Help": "Allows to restore packages that are referenced in paket.references files, instead of all packages in paket.dependencies."
+          },
+          {
+            "Name": "TouchAffectedRefs",
+            "Type": "bool",
+            "Format": "--touch-affected-refs",
+            "Help": "Touches project files referencing packages which are being restored, to help incremental build tools detecting the change."
+          },
+          {
+            "Name": "IgnoreChecks",
+            "Type": "bool",
+            "Format": "--ignore-checks",
+            "Help": "Skips the test if paket.dependencies and paket.lock are in sync."
+          },
+          {
+            "Name": "FailOnChecks",
+            "Type": "bool",
+            "Format": "--fail-on-checks",
+            "Help": "Causes the restore to fail if any of the checks fail."
+          },
+          {
+            "Name": "DependencyGroup",
+            "Type": "string",
+            "Format": "group {value}",
+            "Help": "Allows to restore a single group."
+          },
+          {
+            "Name": "ProjectFile",
+            "Type": "string",
+            "Format": "--project {value}",
+            "Help": "Allows to restore dependencies for a project."
+          },
+          {
+            "Name": "ReferencesFiles",
+            "Type": "List<string>",
+            "Format": "--references-files {value}",
+            "Help": "Allows to restore all packages from the given paket.references files."
+          },
+          {
+            "Name": "TargetFramework",
+            "Type": "string",
+            "Format": "--target-framework {value}",
+            "Help": "Allows to restore only for a specified target framework."
+          },
+          {
+            "Name": "Verbose",
+            "Type": "bool",
+            "Format": "--verbose",
+            "Help": "Enable verbose console output for the paket process."
+          },
+          {
+            "Name": "LogFile",
+            "Type": "string",
+            "Format": "--log-file {value}",
+            "Help": "Specify a log file for the paket process."
+          },
+          {
+            "Name": "Silent",
+            "Type": "bool",
+            "Format": "--silent",
+            "Help": "Suppress console output for the paket process."
+          },
+          {
+            "Name": "ShowVersion",
+            "Type": "bool",
+            "Format": "--version",
+            "Help": "Display the version."
+          },
+          {
+            "Name": "FromBootstrapper",
+            "Type": "bool",
+            "Format": "--from-bootstrapper",
+            "Help": "Call coming from the '--run' feature of the bootstrapper."
+          }
+        ]
+      }
+    },
+    {
+      "Postfix": "Push",
+      "DefiniteArgument": "push",
+      "SettingsClass": {
+        "Properties": [
+          {
+            "Name": "Url",
+            "Type": "string",
+            "Format": "url {value}",
+            "Help": "Url of the NuGet feed."
+          },
+          {
+            "Name": "File",
+            "Type": "string",
+            "Format": "file {value}",
+            "Help": "Path to the package."
+          },
+          {
+            "Name": "ApiKey",
+            "Type": "string",
+            "Format": "apikey {value}",
+            "Help": "Optionally specify your API key on the command line. Otherwise uses the value of the `nugetkey` environment variable."
+          },
+          {
+            "Name": "Endpoint",
+            "Type": "string",
+            "Format": "endpoint {value}",
+            "Help": "Optionally specify a custom api endpoint to push to. Defaults to `/api/v2/package`."
+          },
+          {
+            "Name": "Verbose",
+            "Type": "bool",
+            "Format": "--verbose",
+            "Help": "Enable verbose console output for the paket process."
+          },
+          {
+            "Name": "LogFile",
+            "Type": "string",
+            "Format": "--log-file {value}",
+            "Help": "Specify a log file for the paket process."
+          },
+          {
+            "Name": "Silent",
+            "Type": "bool",
+            "Format": "--silent",
+            "Help": "Suppress console output for the paket process."
+          },
+          {
+            "Name": "ShowVersion",
+            "Type": "bool",
+            "Format": "--version",
+            "Help": "Display the version."
+          },
+          {
+            "Name": "FromBootstrapper",
+            "Type": "bool",
+            "Format": "--from-bootstrapper",
+            "Help": "Call coming from the '--run' feature of the bootstrapper."
+          }
+        ]
+      }
+    },
+    {
+      "Postfix": "Pack",
+      "DefiniteArgument": "pack",
+      "SettingsClass": {
+        "Properties": [
+          {
+            "Name": "OutputDirectory",
+            "Type": "string",
+            "Format": "output {value}",
+            "Help": "Output directory to put .nupkg files."
+          },
+          {
+            "Name": "BuildConfiguration",
+            "Type": "string",
+            "Format": "buildconfig {value}",
+            "Help": "Optionally specify build configuration that should be packaged (defaults to Release)."
+          },
+          {
+            "Name": "BuildPlatform",
+            "Type": "string",
+            "Format": "buildplatform {value}",
+            "Help": "Optionally specify build platform that should be packaged (if not provided or empty, checks all known platform targets)."
+          },
+          {
+            "Name": "PackageVersion",
+            "Type": "string",
+            "Format": "version {value}",
+            "Help": "Specify version of the package."
+          },
+          {
+            "Name": "TemplateFile",
+            "Type": "string",
+            "Format": "templatefile {value}",
+            "Help": "Allows to specify a single template file."
+          },
+          {
+            "Name": "Exclude",
+            "Type": "string",
+            "Format": "exclude {value}",
+            "Help": "Exclude template file by id."
+          },
+          {
+            "Name": "SpecificVersion",
+            "Type": "string",
+            "Format": "specific-version {value}",
+            "Help": "Specifies a version number for template with given id."
+          },
+          {
+            "Name": "ReleaseNotes",
+            "Type": "string",
+            "Format": "releaseNotes {value}",
+            "Help": "Specify relase notes for the package."
+          },
+          {
+            "Name": "LockDependencies",
+            "Type": "bool",
+            "Format": "lock-dependencies",
+            "Help": "Get the version requirements from paket.lock instead of paket.dependencies."
+          },
+          {
+            "Name": "MinimumFromLockFile",
+            "Type": "bool",
+            "Format": "minimum-from-lock-file",
+            "Help": "Get the version requirements from paket.lock instead of paket.dependencies, and add them as a minimum version. `lock-dependencies` will over-ride this option."
+          },
+          {
+            "Name": "PinProjectReferences",
+            "Type": "bool",
+            "Format": "pin-project-references",
+            "Help": "Pin dependencies generated from project references (=) instead of using minimum (>=) for version specification.  If `lock-dependencies` is specified, project references will be pinned even if this option is not specified."
+          },
+          {
+            "Name": "Symbols",
+            "Type": "bool",
+            "Format": "symbols",
+            "Help": "Build symbol/source packages in addition to library/content packages."
+          },
+          {
+            "Name": "IncludeReferencedProjects",
+            "Type": "bool",
+            "Format": "include-referenced-projects",
+            "Help": "Include symbol/source from referenced projects."
+          },
+          {
+            "Name": "ProjectUrl",
+            "Type": "string",
+            "Format": "project-url {value}",
+            "Help": "Url to the projects home page."
+          },
+          {
+            "Name": "Verbose",
+            "Type": "bool",
+            "Format": "--verbose",
+            "Help": "Enable verbose console output for the paket process."
+          },
+          {
+            "Name": "LogFile",
+            "Type": "string",
+            "Format": "--log-file {value}",
+            "Help": "Specify a log file for the paket process."
+          },
+          {
+            "Name": "Silent",
+            "Type": "bool",
+            "Format": "--silent",
+            "Help": "Suppress console output for the paket process."
+          },
+          {
+            "Name": "ShowVersion",
+            "Type": "bool",
+            "Format": "--version",
+            "Help": "Display the version."
+          },
+          {
+            "Name": "FromBootstrapper",
+            "Type": "bool",
+            "Format": "--from-bootstrapper",
+            "Help": "Call coming from the '--run' feature of the bootstrapper."
+          }
+        ]
+      }
+    }
+  ],
+  "DataClasses": [],
+  "Enumerations": []
+}
