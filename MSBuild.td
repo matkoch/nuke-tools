@@ -79,6 +79,18 @@
           "Name": "MSBuildPlatform",
           "Type": "MSBuildPlatform?",
           "Help": "Specifies the platform to use when building."
+        },
+        {
+          "Name": "Loggers",
+          "Type": "List<string>",
+          "Format": "/logger:{value}",
+          "Help": "Specifies the loggers to use to log events from MSBuild."
+        },
+        {
+          "Name": "NoConsoleLogger",
+          "Type": "bool",
+          "Format": "/noconsolelogger",
+          "Help": "Disable the default console logger, and don't log events to the console."
         }
       ]
     }
