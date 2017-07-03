@@ -1,0 +1,115 @@
+{
+  "References": [
+    "https://www.jetbrains.com/help/resharper/dupFinder.html#//article[@class='article']"
+  ],
+  "Name": "DupFinder",
+  "OfficialUrl": "https://www.jetbrains.com/help/resharper/dupFinder.html",
+  "Help": "dupFinder is a free command line tool that finds duplicates in C# and Visual Basic .NET code - no more, no less. But being a JetBrains tool, dupFinder does it in a smart way. By default, it considers code fragments as duplicates not only if they are identical, but also if they are structurally similar, even if they contain different variables, fields, methods, types or literals. Of course, you can configure the allowed similarity as well as the minimum relative size of duplicated fragments.",
+  "PackageId": "JetBrains.ReSharper.CommandLineTools",
+  "PackageExecutable": "dupfinder.exe",
+  "IconClass": "code",
+  "Tasks": [
+    {
+      "SettingsClass": {
+        "Properties": [
+          {
+            "Name": "Source",
+            "Type": "string",
+            "Format": "{value}",
+            "Help": "Defines files included into the duplicates search. Use Visual Studio solution or project files, Ant-like wildcards or specific source file and folder names. Paths should be either absolute or relative to the working directory."
+          },
+          {
+            "Name": "OutputFile",
+            "Type": "string",
+            "Format": "--output={value}",
+            "Help": "Lets you set the output file."
+          },
+          {
+            "Name": "ExcludeFiles",
+            "Type": "List<string>",
+            "Format": "--exclude={value}",
+            "MainSeparator": ";",
+            "Help": "Allows excluding files from the duplicates search. Wildcards can be used; for example, <c>*Generated.cs</c>. Note that the paths should be either absolute or relative to the working directory."
+          },
+          {
+            "Name": "ExcludeComments",
+            "Type": "List<string>",
+            "Format": "--exclude-by-comment={value}",
+            "MainSeparator": ";",
+            "Help": "Allows excluding files that have a matching substrings in the opening comments."
+          },
+          {
+            "Name": "ExcludeCodeRegions",
+            "Type": "List<string>",
+            "Format": "--exclude-code-regions={value}",
+            "MainSeparator": ";",
+            "Help": "Allows excluding code regions that have a matching substrings in their names. (e.g. <i>generated code</i> will exclude regions containing <i>Windows Form Designer generated code</i>)."
+          },
+          {
+            "Name": "DiscardFields",
+            "Type": "bool",
+            "Format": "--discard-fields={value}",
+            "Help": "Whether to consider similar fragments as duplicates if they have different fields. The default value is <c>false</c>."
+          },
+          {
+            "Name": "DiscardLiterals",
+            "Type": "bool",
+            "Format": "--discard-literals={value}",
+            "Help": "Whether to consider similar fragments as duplicates if they have different literals. The default value is <c>false</c>."
+          },
+          {
+            "Name": "DiscardLocalVars",
+            "Type": "bool",
+            "Format": "--discard-local-vars={value}",
+            "Help": "Whether to consider similar fragments as duplicates if they have different local variables. The default value is <c>false</c>."
+          },
+          {
+            "Name": "DiscardTypes",
+            "Type": "bool",
+            "Format": "--discard-types={value}",
+            "Help": "Whether to consider similar fragments as duplicates if they have different types. The default value is <c>false</c>."
+          },
+          {
+            "Name": "DiscardCost",
+            "Type": "bool",
+            "Format": "--discard-cost={value}",
+            "Help": "Allows setting a threshold for code complexity of the duplicated fragments. The fragments with lower complexity are discarded as non-duplicates. The value for this option is provided in relative units. Using this option, you can filter out equal code fragments that present no semantic duplication. E.g. you can often have the following statements in tests: <c>Assert.AreEqual(gold, result);</c>. If the <c>discard-cost</c> value is less than 10, statements like that will appear as duplicates, which is obviously unhelpful. You'll need to play a bit with this value to find a balance between avoiding false positives and missing real duplicates. The proper values will differ for different codebases."
+          },
+          {
+            "Name": "Properties",
+            "Type": "Dictionary<string, string>",
+            "Format": "--properties:{value}",
+            "KeyValueSeparator": "=",
+            "Help": "Lets you override MSBuild properties. The specified properties are applied to all analyzed projects. Currently, there is no direct way to set a property to a specific project only. The workaround is to create a custom property in this project and assign it to the desired property, then use the custom property in dupFinder parameters."
+          },
+          {
+            "Name": "NormalizeTypes",
+            "Type": "bool",
+            "Format": "--normalize-types={value}",
+            "Help": "Allows normalizing type names to the last subtype in the output (default: <c>false</c>)."
+          },
+          {
+            "Name": "ShowText",
+            "Type": "bool",
+            "Format": "--show-text={value}",
+            "Help": "If you use this parameter, the detected duplicate fragments will be embedded into the report."
+          },
+          {
+            "Name": "CreateConfigFile",
+            "Type": "string",
+            "Format": "--config-create={value}",
+            "Help": "Used to save the current parameters to a configuration file."
+          },
+          {
+            "Name": "ConfigFile",
+            "Type": "string",
+            "Format": "--config={value}",
+            "Help": "Used to load the parameters described above from a configuration file."
+          }
+        ]
+      }
+    }
+  ],
+  "DataClasses": [],
+  "Enumerations": []
+}
