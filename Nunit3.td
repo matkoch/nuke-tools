@@ -1,6 +1,6 @@
 {
   "References": [
-    "https://github.com/nunit/docs/wiki/Console-Command-Line//div[@id='wiki-body']"
+    "https://github.com/nunit/docs/wiki/Console-Command-Line#//div[@id='wiki-body']"
   ],
   "Name": "Nunit3",
   "OfficialUrl": "https://www.nunit.org/",
