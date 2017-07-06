@@ -1,4 +1,9 @@
 {
+  "License": [
+    "Copyright Matthias Koch 2017.",
+    "Distributed under the MIT License.",
+    "https://github.com/nuke-build/tools/blob/master/LICENSE"
+  ],
   "References": [
     "https://fsprojects.github.io/Paket/paket-update.html#//div[@id='main']",
     "https://fsprojects.github.io/Paket/paket-restore.html#//div[@id='main']",

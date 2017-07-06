@@ -1,4 +1,9 @@
 {
+  "License": [
+    "Copyright Matthias Koch 2017.",
+    "Distributed under the MIT License.",
+    "https://github.com/nuke-build/tools/blob/master/LICENSE"
+  ],
   "References": [
     "https://www.jetbrains.com/help/resharper/InspectCode.html#//article[@class='article']"
   ],

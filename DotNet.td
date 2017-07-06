@@ -1,4 +1,9 @@
 {
+  "License": [
+    "Copyright Matthias Koch 2017.",
+    "Distributed under the MIT License.",
+    "https://github.com/nuke-build/tools/blob/master/LICENSE"
+  ],
   "References": [
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-test#//div[@class='content']",
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run#//div[@class='content']",

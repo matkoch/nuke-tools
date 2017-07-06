@@ -1,4 +1,9 @@
 {
+  "License": [
+    "Copyright Matthias Koch 2017.",
+    "Distributed under the MIT License.",
+    "https://github.com/nuke-build/tools/blob/master/LICENSE"
+  ],
   "References": [],
   "Name": "GitLink2",
   "OfficialUrl": "https://github.com/GitTools/GitLink/",

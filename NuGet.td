@@ -1,4 +1,9 @@
 {
+  "License": [
+    "Copyright Matthias Koch 2017.",
+    "Distributed under the MIT License.",
+    "https://github.com/nuke-build/tools/blob/master/LICENSE"
+  ],
   "References": [
     "https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference#//table[12]",
     "https://docs.microsoft.com/en-us/nuget/tools/nuget-exe-cli-reference#//table[13]",

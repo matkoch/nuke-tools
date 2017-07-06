@@ -1,4 +1,9 @@
 {
+  "License": [
+    "Copyright Matthias Koch 2017.",
+    "Distributed under the MIT License.",
+    "https://github.com/nuke-build/tools/blob/master/LICENSE"
+  ],
   "References": [
     "https://raw.githubusercontent.com/GitTools/GitLink/1520bf13cf35337a368aa0c960135c564e519fbf/src/GitLink/Program.cs"
   ],
