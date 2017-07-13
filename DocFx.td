@@ -5,7 +5,8 @@
     "https://github.com/nuke-build/tools/blob/master/LICENSE"
   ],
   "References": [
-    "https://raw.githubusercontent.com/dotnet/docfx/dev/src/docfx/Models/MetadataCommandOptions.cs"
+    "https://raw.githubusercontent.com/dotnet/docfx/dev/src/docfx/Models/MetadataCommandOptions.cs",
+    "https://raw.githubusercontent.com/dotnet/docfx/dev/src/docfx/Models/BuildCommandOptions.cs"
   ],
   "Name": "DocFx",
   "OfficialUrl": "https://dotnet.github.io/docfx/",
