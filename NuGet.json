@@ -166,7 +166,6 @@
             "Name": "MSBuildVersion",
             "Type": "NuGetMSBuildVersion?",
             "Format": "-MSBuildVersion {value}",
-            "CustomValue": true,
             "Help": "<i>(3.2+)</i> Specifies the version of MSBuild to be used with this command. Supported values are <i>4</i>, <i>12</i>, <i>14</i>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
           },
           {
@@ -191,7 +190,8 @@
             "Name": "Properties",
             "Type": "Dictionary<string, string>",
             "Format": "-Properties {value}",
-            "CustomValue": true,
+            "MainSeparator": ";",
+            "KeyValueSeparator": "=",
             "Help": "Specifies a list of <c>token=value</c> pairs, separated by semicolons, where each occurrence of <c>$token$</c> in the <c>.nuspec</c> file will be replaced with the given value. Values can be strings in quotation marks."
           },
           {
