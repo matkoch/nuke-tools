@@ -56,7 +56,7 @@
             "Name": "PerformanceCounters",
             "Type": "bool",
             "Format": "-enableperformancecounters",
-            "Help": "<i>Administrator</i> privileges required. Allows the monitoring in <i>Performance Monitor</i> of the following values (they are usually cleared at the end of a performance run):<ul><li>messages remaining on the queue</li><li>number of messages processed</li></ul>"
+            "Help": "<em>Administrator</em> privileges required. Allows the monitoring in <em>Performance Monitor</em> of the following values (they are usually cleared at the end of a performance run):<ul><li>messages remaining on the queue</li><li>number of messages processed</li></ul>"
           },
           {
             "Name": "ExcludeByAttributes",
@@ -84,7 +84,7 @@
             "Type": "List<string>",
             "Format": "-filter:{value}",
             "MainSeparator": " ",
-            "Help": "<p>A list of filters to apply to selectively include or exclude assemblies and classes from coverage results. Using PartCover syntax, where <c>(+|-)[Assembly-Filter]Type-Filter</c>. For example <c>+[Open*]*</c> includes all types in assemblies starting with <i>Open</i>, <c>-[*]Core.*</c> exclude all types in the <i>Core</i> namespace regardless of the assembly. If no filters are supplied then the default inclusive filter <c>+[*]*</c> is applied automatically. See Understanding Filters for more information.</p><ul><li>NOTE: Multiple filters can be applied by separating them with spaces and enclosing them with quotes: <c>-filter:\"+[*]* -[A*]Name.*\"</c></li><li>NOTE: Exclusion filters take precedence over inclusion filters.</li></ul>"
+            "Help": "<p>A list of filters to apply to selectively include or exclude assemblies and classes from coverage results. Using PartCover syntax, where <c>(+|-)[Assembly-Filter]Type-Filter</c>. For example <c>+[Open*]*</c> includes all types in assemblies starting with <em>Open</em>, <c>-[*]Core.*</c> exclude all types in the <em>Core</em> namespace regardless of the assembly. If no filters are supplied then the default inclusive filter <c>+[*]*</c> is applied automatically. See Understanding Filters for more information.</p><ul><li>NOTE: Multiple filters can be applied by separating them with spaces and enclosing them with quotes: <c>-filter:\"+[*]* -[A*]Name.*\"</c></li><li>NOTE: Exclusion filters take precedence over inclusion filters.</li></ul>"
           },
           {
             "Name": "HideSkippedKinds",
@@ -121,7 +121,7 @@
             "Name": "OldStyle",
             "Type": "bool",
             "Format": "-oldStyle",
-            "Help": "Use old style instrumentation - the instrumentation is not Silverlight friendly and is provided to support environments where mscorlib instrumentation is not working. <i>ONLY</i> use this option if you are encountering <see cref=\"MissingMethodException\"/> like errors when the code is run under OpenCover. The issue could be down to <i>ngen /Profile</i> of the mscorlib which then interferes with the instrumentation."
+            "Help": "Use old style instrumentation - the instrumentation is not Silverlight friendly and is provided to support environments where mscorlib instrumentation is not working. <em>ONLY</em> use this option if you are encountering <see cref=\"MissingMethodException\"/> like errors when the code is run under OpenCover. The issue could be down to <em>ngen /Profile</em> of the mscorlib which then interferes with the instrumentation."
           },
           {
             "Name": "Output",
@@ -147,7 +147,7 @@
             "Name": "Service",
             "Type": "bool",
             "Format": "-service",
-            "Help": "The value provided in the target parameter is the name of a service rather than a name of a process. <i>Administrator</i> privileges recommended."
+            "Help": "The value provided in the target parameter is the name of a service rather than a name of a process. <em>Administrator</em> privileges recommended."
           },
           {
             "Name": "ShowUnvisited",
@@ -171,7 +171,7 @@
             "Name": "Registration",
             "Type": "RegistrationType?",
             "Format": "-register:{value}",
-            "Help": "Use this switch to register and de-register the code coverage profiler. Alternatively use the optional user argument to do per-user registration where the user account does not have administrative permissions. Alternatively use an administrative account to register the profilers using the <i>regsvr32</i> utility. If you do not want to use the registry entries, use <c>-register:Path32</c> or <c>-register:Path64</c> to let opencover select the profiler for you. Depending on your choice it selects the <i>OpenCoverAssemblyLocation/x86/OpenCover.Profiler.dll</i> or <i>OpenCoverAssemblyLocation/x64/OpenCover.Profiler.dll</i>."
+            "Help": "Use this switch to register and de-register the code coverage profiler. Alternatively use the optional user argument to do per-user registration where the user account does not have administrative permissions. Alternatively use an administrative account to register the profilers using the <em>regsvr32</em> utility. If you do not want to use the registry entries, use <c>-register:Path32</c> or <c>-register:Path64</c> to let opencover select the profiler for you. Depending on your choice it selects the <em>OpenCoverAssemblyLocation/x86/OpenCover.Profiler.dll</em> or <em>OpenCoverAssemblyLocation/x64/OpenCover.Profiler.dll</em>."
           },
           {
             "Name": "TargetExitCodeOffset",

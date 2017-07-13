@@ -69,7 +69,7 @@
         {
           "Name": "DevelopmentDependency",
           "Type": "bool",
-          "Help": "<i>(2.8+)</i>  A Boolean value specifying whether the package will be marked as a development-only-dependency, which prevents the package from being included as a dependency in other packages."
+          "Help": "<em>(2.8+)</em>  A Boolean value specifying whether the package will be marked as a development-only-dependency, which prevents the package from being included as a dependency in other packages."
         },
         {
           "Name": "Summary",
@@ -79,12 +79,12 @@
         {
           "Name": "ReleaseNotes",
           "Type": "string",
-          "Help": "<i>(1.5+)</i> A description of the changes made in this release of the package, often used in UI like the Updates tab of the Visual Studio Package Manager in place of the package description."
+          "Help": "<em>(1.5+)</em> A description of the changes made in this release of the package, often used in UI like the Updates tab of the Visual Studio Package Manager in place of the package description."
         },
         {
           "Name": "Copyright",
           "Type": "string",
-          "Help": "<i>(1.5+)</i> Copyright details for the package."
+          "Help": "<em>(1.5+)</em> Copyright details for the package."
         },
         {
           "Name": "Language",
@@ -99,7 +99,7 @@
         {
           "Name": "ContentFiles",
           "Type": "List<PackageContentFile>",
-          "Help": "<i>(3.3+)</i> A collection of &lt;files&gt; elements that identify content files that should be include in the consuming project. These files are specified with a set of attributes that describe how they should be used within the project system. See <a href=\"https://docs.microsoft.com/en-us/nuget/schema/nuspec#specifying-files-to-include-in-the-package\">Specifying files to include in the package</a>."
+          "Help": "<em>(3.3+)</em> A collection of &lt;files&gt; elements that identify content files that should be include in the consuming project. These files are specified with a set of attributes that describe how they should be used within the project system. See <a href=\"https://docs.microsoft.com/en-us/nuget/schema/nuspec#specifying-files-to-include-in-the-package\">Specifying files to include in the package</a>."
         },
         {
           "Name": "DefaultDependencies",
@@ -108,7 +108,7 @@
         {
           "Name": "DependencySets",
           "Type": "List<PackageDependencySet>",
-          "Help": "A collection of zero or more &lt;dependency&gt; elements specifying the dependencies for the package. Each dependency has attributes of <i>id</i>, <i>version</i>, <i>include</i> (3.x+), and <i>exclude</i> (3.x+). See <a href=\"https://docs.microsoft.com/en-us/nuget/schema/nuspec#dependencies\">Dependencies</a>."
+          "Help": "A collection of zero or more &lt;dependency&gt; elements specifying the dependencies for the package. Each dependency has attributes of <em>id</em>, <em>version</em>, <em>include</em> (3.x+), and <em>exclude</em> (3.x+). See <a href=\"https://docs.microsoft.com/en-us/nuget/schema/nuspec#dependencies\">Dependencies</a>."
         }
       ]
     },

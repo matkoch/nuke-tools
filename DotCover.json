@@ -106,7 +106,7 @@
             "Type": "List<string>",
             "Format": "/SymbolSearchPaths={value}",
             "MainSeparator": ";",
-            "Help": "Specifies additional symbol search paths. Paths to symbol servers (starting with <i>srv*</i> prefix) are supported here."
+            "Help": "Specifies additional symbol search paths. Paths to symbol servers (starting with <em>srv*</em> prefix) are supported here."
           },
           {
             "Name": "AllowSymbolServerAccess",

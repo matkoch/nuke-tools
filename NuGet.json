@@ -32,32 +32,32 @@
             "Type": "string",
             "Format": "-ApiKey {value}",
             "Secret": true,
-            "Help": "The API key for the target repository. If not present, the one specified in <i>%AppData%\\NuGet\\NuGet.Config</i> is used."
+            "Help": "The API key for the target repository. If not present, the one specified in <em>%AppData%\\NuGet\\NuGet.Config</em> is used."
           },
           {
             "Name": "Source",
             "Type": "string",
             "Format": "-Source {value}",
-            "Help": "Specifies the server URL. With NuGet 2.5+, NuGet will identify a UNC or local folder source and simply copy the file there instead of pushing it using HTTP. Also, starting with NuGet 3.4.2, this is a mandatory parameter unless the <i>NuGet.Config</i> file specifies a <i>DefaultPushSource</i> value."
+            "Help": "Specifies the server URL. With NuGet 2.5+, NuGet will identify a UNC or local folder source and simply copy the file there instead of pushing it using HTTP. Also, starting with NuGet 3.4.2, this is a mandatory parameter unless the <em>NuGet.Config</em> file specifies a <em>DefaultPushSource</em> value."
           },
           {
             "Name": "SymbolSource",
             "Type": "string",
             "Format": "-SymbolSource {value}",
-            "Help": "<i>(3.5+)</i> Specifies the symbol server URL; nuget.smbsrc.net is used when pushing to nuget.org"
+            "Help": "<em>(3.5+)</em> Specifies the symbol server URL; nuget.smbsrc.net is used when pushing to nuget.org"
           },
           {
             "Name": "SymbolApiKey",
             "Type": "string",
             "Format": "-SymbolApiKey {value}",
             "Secret": true,
-            "Help": "<i>(3.5+)</i> Specifies the API key for the URL specified in <c>-SymbolSource</c>."
+            "Help": "<em>(3.5+)</em> Specifies the API key for the URL specified in <c>-SymbolSource</c>."
           },
           {
             "Name": "NoSymbols",
             "Type": "bool",
             "Format": "-NoSymbols",
-            "Help": "<i>(3.5+)</i> If a symbols package exists, it will not be pushed to a symbol server."
+            "Help": "<em>(3.5+)</em> If a symbols package exists, it will not be pushed to a symbol server."
           },
           {
             "Name": "DisableBuffering",
@@ -70,19 +70,19 @@
             "Type": "string",
             "Assertion": "FileOrNull",
             "Format": "-ConfigFile {value}",
-            "Help": "<i>(2.5+)</i> The NuGet configuration file to apply. If not specified, <i>%AppData%\\NuGet\\NuGet.Config</i> is used."
+            "Help": "<em>(2.5+)</em> The NuGet configuration file to apply. If not specified, <em>%AppData%\\NuGet\\NuGet.Config</em> is used."
           },
           {
             "Name": "Verbosity",
             "Type": "NuGetVerbosity?",
             "Format": "-Verbosity {value}",
-            "Help": "<i>(2.5+)</i> Specifies the amount of details displayed in the output: <i>normal</i>, <i>quiet</i>, <i>detailed</i>."
+            "Help": "<em>(2.5+)</em> Specifies the amount of details displayed in the output: <em>normal</em>, <em>quiet</em>, <em>detailed</em>."
           },
           {
             "Name": "ForceEnglishOutput",
             "Type": "bool",
             "Format": "-ForceEnglishOutput",
-            "Help": "<i>(3.5+)</i> Forces nuget.exe to run using an invariant, English-based culture."
+            "Help": "<em>(3.5+)</em> Forces nuget.exe to run using an invariant, English-based culture."
           },
           {
             "Name": "NonInteractive",
@@ -148,31 +148,31 @@
             "Name": "MinClientVersion",
             "Type": "bool",
             "Format": "-MinClientVersion",
-            "Help": "Set the <i>minClientVersion</i> attribute for the created package. This value will override the value of the existing <i>minClientVersion</i> attribute (if any) in the <c>.nuspec</c> file."
+            "Help": "Set the <em>minClientVersion</em> attribute for the created package. This value will override the value of the existing <em>minClientVersion</em> attribute (if any) in the <c>.nuspec</c> file."
           },
           {
             "Name": "ForceEnglishOutput",
             "Type": "bool",
             "Format": "-ForceEnglishOutput",
-            "Help": "<i>(3.5+)</i> Forces nuget.exe to run using an invariant, English-based culture."
+            "Help": "<em>(3.5+)</em> Forces nuget.exe to run using an invariant, English-based culture."
           },
           {
             "Name": "MSBuildPath",
             "Type": "string",
             "Format": "-MSBuildPath {value}",
-            "Help": "<i>(4.0+)</i> Specifies the path of MSBuild to use with the command, taking precedence over <c>-MSBuildVersion</c>."
+            "Help": "<em>(4.0+)</em> Specifies the path of MSBuild to use with the command, taking precedence over <c>-MSBuildVersion</c>."
           },
           {
             "Name": "MSBuildVersion",
             "Type": "NuGetMSBuildVersion?",
             "Format": "-MSBuildVersion {value}",
-            "Help": "<i>(3.2+)</i> Specifies the version of MSBuild to be used with this command. Supported values are <i>4</i>, <i>12</i>, <i>14</i>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
+            "Help": "<em>(3.2+)</em> Specifies the version of MSBuild to be used with this command. Supported values are <em>4</em>, <em>12</em>, <em>14</em>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
           },
           {
             "Name": "NoDefaultExcludes",
             "Type": "bool",
             "Format": "-NoDefaultExcludes",
-            "Help": "Prevents default exclusion of NuGet package files and files and folders starting with a dot, such as <i>.svn</i> and <c>.gitignore</c>."
+            "Help": "Prevents default exclusion of NuGet package files and files and folders starting with a dot, such as <em>.svn</em> and <c>.gitignore</c>."
           },
           {
             "Name": "NoPackageAnalysis",
@@ -198,7 +198,7 @@
             "Name": "Suffix",
             "Type": "string",
             "Format": "-Suffix {value}",
-            "Help": "<i>(3.4.4+)</i> Appends a suffix to the internally generated version number, typically used for appending build or other pre-release identifiers. For example, using <c>-suffix nightly</c> will create a package with a version number like <c>1.2.3-nightly</c>. Suffixes must start with a letter to avoid warnings, errors, and potential incompatibilities with different versions of NuGet and the NuGet Package Manager."
+            "Help": "<em>(3.4.4+)</em> Appends a suffix to the internally generated version number, typically used for appending build or other pre-release identifiers. For example, using <c>-suffix nightly</c> will create a package with a version number like <c>1.2.3-nightly</c>. Suffixes must start with a letter to avoid warnings, errors, and potential incompatibilities with different versions of NuGet and the NuGet Package Manager."
           },
           {
             "Name": "Symbols",
@@ -216,7 +216,7 @@
             "Name": "Verbosity",
             "Type": "NuGetVerbosity?",
             "Format": "-Verbosity {value}",
-            "Help": "<i>(2.5+)</i> Specifies the amount of details displayed in the output: <i>normal</i>, <i>quiet</i>, <i>detailed</i>."
+            "Help": "<em>(2.5+)</em> Specifies the amount of details displayed in the output: <em>normal</em>, <em>quiet</em>, <em>detailed</em>."
           },
           {
             "Name": "Version",
@@ -245,13 +245,13 @@
             "Name": "ConfigFile",
             "Type": "string",
             "Format": "-ConfigFile {value}",
-            "Help": "The NuGet configuration file to apply. If not specified, <i>%AppData%\\NuGet\\NuGet.Config</i> is used."
+            "Help": "The NuGet configuration file to apply. If not specified, <em>%AppData%\\NuGet\\NuGet.Config</em> is used."
           },
           {
             "Name": "DirectDownload",
             "Type": "bool",
             "Format": "-DirectDownload",
-            "Help": "<i>(4.0+)</i> Downloads packages directly without populating caches with any binaries or metadata."
+            "Help": "<em>(4.0+)</em> Downloads packages directly without populating caches with any binaries or metadata."
           },
           {
             "Name": "DisableParallelProcessing",
@@ -264,25 +264,25 @@
             "Type": "List<string>",
             "Format": "-FallbackSource {value}",
             "MainSeparator": ";",
-            "Help": "<i>(3.2+)</i> A list of package sources to use as fallbacks in case the package isn't found in the primary or default source."
+            "Help": "<em>(3.2+)</em> A list of package sources to use as fallbacks in case the package isn't found in the primary or default source."
           },
           {
             "Name": "ForceEnglishOutput",
             "Type": "bool",
             "Format": "-ForceEnglishOutput",
-            "Help": "<i>(3.5+)</i> Forces nuget.exe to run using an invariant, English-based culture."
+            "Help": "<em>(3.5+)</em> Forces nuget.exe to run using an invariant, English-based culture."
           },
           {
             "Name": "MSBuildPath",
             "Type": "string",
             "Format": "-MSBuildPath {value}",
-            "Help": "<i>(4.0+)</i> Specifies the path of MSBuild to use with the command, taking precedence over <c>-MSBuildVersion</c>."
+            "Help": "<em>(4.0+)</em> Specifies the path of MSBuild to use with the command, taking precedence over <c>-MSBuildVersion</c>."
           },
           {
             "Name": "MSBuildVersion",
             "Type": "Nuke.Common.Tools.MSBuild.MSBuildVersion?",
             "Format": "-MSBuildVersion {value}",
-            "Help": "<i>(3.2+)</i> Specifies the version of MSBuild to be used with this command. Supported values are <i>4</i>, <i>12</i>, <i>14</i>, <i>15</i>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
+            "Help": "<em>(3.2+)</em> Specifies the version of MSBuild to be used with this command. Supported values are <em>4</em>, <em>12</em>, <em>14</em>, <em>15</em>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
           },
           {
             "Name": "NoCache",
@@ -325,7 +325,7 @@
             "Name": "Recursive",
             "Type": "bool",
             "Format": "-Recursive",
-            "Help": "<i>(4.0+)</i> Restores all references projects for UWP and .NET Core projects. Does not apply to projects using <c>packages.config</c>."
+            "Help": "<em>(4.0+)</em> Restores all references projects for UWP and .NET Core projects. Does not apply to projects using <c>packages.config</c>."
           },
           {
             "Name": "RequireConsent",
@@ -350,7 +350,7 @@
             "Name": "Verbosity",
             "Type": "NuGetVerbosity?",
             "Format": "-Verbosity {value}",
-            "Help": "<i>(2.5+)</i> Specifies the amount of detail displayed in the output: <i>normal</i>, <i>quiet</i>, <i>detailed</i>."
+            "Help": "<em>(2.5+)</em> Specifies the amount of detail displayed in the output: <em>normal</em>, <em>quiet</em>, <em>detailed</em>."
           }
         ]
       }

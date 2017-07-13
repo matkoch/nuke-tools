@@ -48,7 +48,7 @@
             "Type": "List<string>",
             "Format": "--exclude-code-regions={value}",
             "MainSeparator": ";",
-            "Help": "Allows excluding code regions that have a matching substrings in their names. (e.g. <i>generated code</i> will exclude regions containing <i>Windows Form Designer generated code</i>)."
+            "Help": "Allows excluding code regions that have a matching substrings in their names. (e.g. <em>generated code</em> will exclude regions containing <em>Windows Form Designer generated code</em>)."
           },
           {
             "Name": "DiscardFields",

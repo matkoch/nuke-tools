@@ -30,7 +30,7 @@
             "Assertion": "NotNull",
             "Format": "--output={value}",
             "CreateOverload": true,
-            "Help": "Lets you set the output file. By default, the output file is saved in the <i>%TEMP%</i> directory."
+            "Help": "Lets you set the output file. By default, the output file is saved in the <em>%TEMP%</em> directory."
           },
           {
             "Name": "NoSwea",
@@ -67,7 +67,7 @@
             "Name": "CachesHome",
             "Type": "string",
             "Format": "--caches-home={value}",
-            "Help": "Lets you specify a custom location for the data that InspectCode caches. By default, the <i>%LOCALAPPDATA%</i> directory is used, unless there are settings files, in which case the one specified there is used. This parameter can be helpful if you want to use a fast SSD disk for the cache or if you want to store all your build processing data in a single place."
+            "Help": "Lets you specify a custom location for the data that InspectCode caches. By default, the <em>%LOCALAPPDATA%</em> directory is used, unless there are settings files, in which case the one specified there is used. This parameter can be helpful if you want to use a fast SSD disk for the cache or if you want to store all your build processing data in a single place."
           },
           {
             "Name": "Extensions",
