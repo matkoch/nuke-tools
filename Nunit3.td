@@ -46,6 +46,7 @@
           {
             "Name": "Parameters",
             "Type": "Dictionary<string, string>",
+            "Format": "--params={value}",
             "KeyValueSeparator": "=",
             "Help": "A test parameter specified in the form NAME=VALUE. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times."
           },
