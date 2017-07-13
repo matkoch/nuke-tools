@@ -164,7 +164,7 @@
           },
           {
             "Name": "MSBuildVersion",
-            "Type": "Nuke.Common.Tools.MSBuild.MSBuildVersion?",
+            "Type": "NuGetMSBuildVersion?",
             "Format": "-MSBuildVersion {value}",
             "CustomValue": true,
             "Help": "<i>(3.2+)</i> Specifies the version of MSBuild to be used with this command. Supported values are <i>4</i>, <i>12</i>, <i>14</i>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
@@ -376,6 +376,14 @@
         "Nuspec",
         "Nupkg",
         "NuspecAndNupkg"
+      ]
+    },
+    {
+      "Name": "NuGetMSBuildVersion",
+      "Values": [
+        "4",
+        "12",
+        "14"
       ]
     }
   ]

@@ -90,7 +90,7 @@
           },
           {
             "Name": "Toolset",
-            "Type": "string",
+            "Type": "InspectCodeMSBuildToolset?",
             "Format": "--toolset={value}",
             "Help": "Explicitly specified MsBuild Toolset version (12.0, 14.0, 15.0). For example, <c>--toolset=12.0</c>."
           }
@@ -107,6 +107,14 @@
         "GlobalPerProduct",
         "SolutionShared",
         "SolutionPersonal"
+      ]
+    },
+    {
+      "Name": "InspectCodeMSBuildToolset",
+      "Values": [
+        "12.0",
+        "14.0",
+        "15.0"
       ]
     }
   ]
