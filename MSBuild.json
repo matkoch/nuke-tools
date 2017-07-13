@@ -49,6 +49,13 @@
             "Help": "Don't display the startup banner or the copyright message."
           },
           {
+            "Name": "TargetPlatform",
+            "Type": "MSBuildTargetPlatform?",
+            "Format": "/property:Platform={value}",
+            "CustomValue": true,
+            "Help": "The target platform for which the project is built to run on."
+          },
+          {
             "Name": "Properties",
             "Type": "Dictionary<string, string>",
             "Format": "/property:{value}",
@@ -122,7 +129,7 @@
       ]
     },
     {
-      "Name": "TargetPlatform",
+      "Name": "MSBuildTargetPlatform",
       "Values": [
         "MSIL",
         "x86",
