@@ -224,10 +224,6 @@
             "Format": "-Version {value}",
             "CreateOverload": true,
             "Help": "Overrides the version number from the <c>.nuspec</c> file."
-          },
-          {
-            "Name": "Configuration",
-            "Type": "string"
           }
         ]
       }

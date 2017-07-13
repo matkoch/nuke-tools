@@ -78,6 +78,7 @@
           {
             "Name": "MSBuildVersion",
             "Type": "MSBuildVersion?",
+            "NoArgument": true,
             "Help": "Specifies the version of MSBuild for building."
           },
           {
@@ -89,6 +90,7 @@
           {
             "Name": "MSBuildPlatform",
             "Type": "MSBuildPlatform?",
+            "NoArgument": true,
             "Help": "Specifies the platform to use when building."
           },
           {

@@ -21,6 +21,7 @@
           {
             "Name": "TestAction",
             "Type": "Action",
+            "NoArgument": true,
             "CreateOverload": true,
             "Help": "The action that executes tests."
           },
