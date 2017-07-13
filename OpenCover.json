@@ -86,9 +86,10 @@
             "Help": "<p>A list of filters to apply to selectively include or exclude assemblies and classes from coverage results. Using PartCover syntax, where <c>(+|-)[Assembly-Filter]Type-Filter</c>. For example <c>+[Open*]*</c> includes all types in assemblies starting with <i>Open</i>, <c>-[*]Core.*</c> exclude all types in the <i>Core</i> namespace regardless of the assembly. If no filters are supplied then the default inclusive filter <c>+[*]*</c> is applied automatically. See Understanding Filters for more information.</p><ul><li>NOTE: Multiple filters can be applied by separating them with spaces and enclosing them with quotes: <c>-filter:\"+[*]* -[A*]Name.*\"</c></li><li>NOTE: Exclusion filters take precedence over inclusion filters.</li></ul>"
           },
           {
-            "Name": "HideSkipped",
-            "Type": "OpenCoverSkipping?",
+            "Name": "HideSkippedKinds",
+            "Type": "List<OpenCoverSkipping>",
             "Format": "-hideskipped:{value}",
+            "MainSeparator": ";",
             "Help": "Remove information from output file (-output:) that relates to classes/modules that have been skipped (filtered) due to the use of the switches <c>-excludebyfile</c>, <c>-excludebyattribute</c> and <c>-filter</c> or where the PDB is missing. Multiple arguments can be used by separating them with a semicolon, e.g. <c>-hideskipped:File;MissingPdb;Attribute</c>"
           },
           {
@@ -198,13 +199,11 @@
     },
     {
       "Name": "OpenCoverSkipping",
-      "IsFlags": true,
       "Values": [
         "File",
         "Filter",
         "Attribute",
-        "MissingPdb",
-        "All = File | Filter | Attribute | MissingPdb"
+        "MissingPdb"
       ]
     },
     {
