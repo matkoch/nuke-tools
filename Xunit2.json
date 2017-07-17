@@ -25,12 +25,6 @@
             "Help": "Assemblies to test, and their related related configuration files (ending with .json or .config)."
           },
           {
-            "Name": "OutputPath",
-            "Type": "string",
-            "Format": "{value}",
-            "Help": "The report file output path."
-          },
-          {
             "Name": "NoLogo",
             "Type": "bool",
             "Format": "-nologo",
@@ -144,7 +138,15 @@
             "Name": "ResultFormat",
             "Type": "ResultFormat?",
             "Format": "-{value}",
+            "NoExtensionMethod": true,
             "Help": "Result formats:<ul><li><c>-xml</c>: output results to xUnit.net v2 XML file</li><li><c>-xmlv1</c>: output results to xUnit.net v1 XML file</li><li><c>-nunit</c>: output results to NUnit v2.5 XML file</li><li><c>-html</c>: output results to HTML file</li></ul>"
+          },
+          {
+            "Name": "ResultPath",
+            "Type": "string",
+            "Format": "{value}",
+            "NoExtensionMethod": true,
+            "Help": "The result file output path."
           }
         ]
       }
