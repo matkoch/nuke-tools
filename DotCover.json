@@ -23,6 +23,7 @@
             "Name": "TestAction",
             "Type": "Action",
             "NoArgument": true,
+            "CustomImpl": true,
             "CreateOverload": true,
             "Help": "The action that executes tests."
           },
