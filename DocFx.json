@@ -100,6 +100,19 @@
             "Type": "DocFxLogLevel?",
             "Format": "--logLevel {value}",
             "Help": "Specify to which log level will be logged. By default log level &gt;= Info will be logged. The acceptable value could be Verbose, Info, Warning, Error."
+          },
+          {
+            "Name": "XRefMaps",
+            "Type": "List<string>",
+            "Format": "--xref {value}",
+            "MainSeparator": ",",
+            "Help": "Specify the urls of xrefmap used by content files."
+          },
+          {
+            "Name": "Serve",
+            "Type": "bool",
+            "Format": "--serve",
+            "Help": "Host the generated documentation to a website."
           }
         ]
       }
