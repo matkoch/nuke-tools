@@ -14,6 +14,7 @@
   "IconClass": "code",
   "Tasks": [
     {
+      "CustomStart": true,
       "SettingsClass": {
         "Properties": [
           {
@@ -72,6 +73,7 @@
           {
             "Name": "Extensions",
             "Type": "List<string>",
+            "NoArgument": true,
             "Help": "Allows using ReSharper extensions that affect code analysis. To use an extension, specify its ID, which you can find by opening the extension package page in the <a href=\"http://resharper-plugins.jetbrains.com/\">ReSharper Gallery</a>, and then the Package Statistics page. Multiple values are separated with the semicolon."
           },
           {
