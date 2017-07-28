@@ -96,7 +96,7 @@
           },
           {
             "Name": "Verbosity",
-            "Type": "OpenCoverVerbosity?",
+            "Type": "OpenCoverVerbosity",
             "Format": "-log:{value}",
             "Help": "Change the logging level, default is set to Info. Logging is based on log4net logging levels and appenders."
           },
@@ -164,19 +164,19 @@
           },
           {
             "Name": "MaximumVisitCount",
-            "Type": "int?",
+            "Type": "int",
             "Format": "-threshold:{value}",
             "Help": "Limits the number of visit counts recorded/reported for an instrumentation point. May have some performance gains as it can reduce the number of messages sent from the profiler. Coverage results should not be affected but will have an obvious impact on the Visit Counts reported."
           },
           {
             "Name": "Registration",
-            "Type": "RegistrationType?",
+            "Type": "RegistrationType",
             "Format": "-register:{value}",
             "Help": "Use this switch to register and de-register the code coverage profiler. Alternatively use the optional user argument to do per-user registration where the user account does not have administrative permissions. Alternatively use an administrative account to register the profilers using the <em>regsvr32</em> utility. If you do not want to use the registry entries, use <c>-register:Path32</c> or <c>-register:Path64</c> to let opencover select the profiler for you. Depending on your choice it selects the <em>OpenCoverAssemblyLocation/x86/OpenCover.Profiler.dll</em> or <em>OpenCoverAssemblyLocation/x64/OpenCover.Profiler.dll</em>."
           },
           {
             "Name": "TargetExitCodeOffset",
-            "Type": "int?",
+            "Type": "int",
             "Format": "-returntargetcode:{value}",
             "Help": "Return the target process exit code instead of the OpenCover console exit code. Use the offset to return the OpenCover console at a value outside the range returned by the target process."
           }

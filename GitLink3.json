@@ -25,7 +25,7 @@
           },
           {
             "Name": "Method",
-            "Type": "GitLinkSourceCodeRetrieval?",
+            "Type": "GitLinkSourceCodeRetrieval",
             "Format": "--method {value}",
             "Help": "The method for SRCSRV to retrieve source code. One of &lt;Http|Powershell&gt;. Default is Http."
           },

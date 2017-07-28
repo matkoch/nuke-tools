@@ -32,7 +32,7 @@
           },
           {
             "Name": "ReportTypes",
-            "Type": "ReportTypes?",
+            "Type": "ReportTypes",
             "Format": "-reporttypes:{value}",
             "Help": "The output formats and scope (separated by semicolon). Default is Html."
           },
@@ -65,7 +65,7 @@
           },
           {
             "Name": "Verbosity",
-            "Type": "ReportGeneratorVerbosity?",
+            "Type": "ReportGeneratorVerbosity",
             "Format": "-verbosity:{value}",
             "Help": "The verbosity level of the log messages. Default is Verbose."
           }

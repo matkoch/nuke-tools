@@ -49,7 +49,7 @@
           },
           {
             "Name": "LogLevel",
-            "Type": "DocFxLogLevel?",
+            "Type": "DocFxLogLevel",
             "Format": "--logLevel {value}",
             "Help": "Specify to which log level will be logged. By default log level &gt;= Info will be logged. The acceptable value could be Verbose, Info, Warning, Error."
           }
@@ -97,7 +97,7 @@
           },
           {
             "Name": "LogLevel",
-            "Type": "DocFxLogLevel?",
+            "Type": "DocFxLogLevel",
             "Format": "--logLevel {value}",
             "Help": "Specify to which log level will be logged. By default log level &gt;= Info will be logged. The acceptable value could be Verbose, Info, Warning, Error."
           },

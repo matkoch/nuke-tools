@@ -58,7 +58,7 @@
           },
           {
             "Name": "Process",
-            "Type": "NunitProcessType?",
+            "Type": "NunitProcessType",
             "Format": "--process={value}",
             "Help": "Process isolation for test assemblies. Values: Single, Separate, Multiple. If not specified, defaults to Separate for a single assembly or Multiple for more than one. By default, processes are run in parallel."
           },
@@ -70,7 +70,7 @@
           },
           {
             "Name": "Agents",
-            "Type": "int?",
+            "Type": "int",
             "Format": "--agents={value}",
             "Help": "Number of agents that may be allowed to run simultaneously assuming you are not running inprocess. If not specified, all agent processes run tests at the same time, whatever the number of assemblies. This setting is used to control running your assemblies in parallel."
           },
@@ -190,13 +190,13 @@
           },
           {
             "Name": "Labels",
-            "Type": "NunitLabelType?",
+            "Type": "NunitLabelType",
             "Format": "--labels={value}",
             "Help": "Specify whether to write test case names to the output. Values: Off, On, All"
           },
           {
             "Name": "Trace",
-            "Type": "NunitTraceLevel?",
+            "Type": "NunitTraceLevel",
             "Format": "--trace={value}",
             "Help": "Set internal trace LEVEL. Values: Off, Error, Warning, Info, Verbose (Debug)"
           },
@@ -232,7 +232,7 @@
           },
           {
             "Name": "SetPrincipalPolicy",
-            "Type": "NunitPrincipalPolicy?",
+            "Type": "NunitPrincipalPolicy",
             "Format": "--set-principal-policy={value}",
             "Help": "Set the principal policy for the test domain to POLICY. Values: UnauthenticatedPrincipal, NoPrincipal, WindowsPrincipal"
           },

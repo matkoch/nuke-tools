@@ -74,7 +74,7 @@
           },
           {
             "Name": "Verbosity",
-            "Type": "NuGetVerbosity?",
+            "Type": "NuGetVerbosity",
             "Format": "-Verbosity {value}",
             "Help": "<em>(2.5+)</em> Specifies the amount of details displayed in the output: <em>normal</em>, <em>quiet</em>, <em>detailed</em>."
           },
@@ -92,7 +92,7 @@
           },
           {
             "Name": "Timeout",
-            "Type": "int?",
+            "Type": "int",
             "Format": "-Timeout {value}",
             "Help": "Specifies the timeout, in seconds, for pushing to a server. The default is 300 seconds (5 minutes)."
           }
@@ -164,7 +164,7 @@
           },
           {
             "Name": "MSBuildVersion",
-            "Type": "NuGetMSBuildVersion?",
+            "Type": "NuGetMSBuildVersion",
             "Format": "-MSBuildVersion {value}",
             "Help": "<em>(3.2+)</em> Specifies the version of MSBuild to be used with this command. Supported values are <em>4</em>, <em>12</em>, <em>14</em>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
           },
@@ -214,7 +214,7 @@
           },
           {
             "Name": "Verbosity",
-            "Type": "NuGetVerbosity?",
+            "Type": "NuGetVerbosity",
             "Format": "-Verbosity {value}",
             "Help": "<em>(2.5+)</em> Specifies the amount of details displayed in the output: <em>normal</em>, <em>quiet</em>, <em>detailed</em>."
           },
@@ -280,7 +280,7 @@
           },
           {
             "Name": "MSBuildVersion",
-            "Type": "Nuke.Common.Tools.MSBuild.MSBuildVersion?",
+            "Type": "NuGetMSBuildVersion",
             "Format": "-MSBuildVersion {value}",
             "Help": "<em>(3.2+)</em> Specifies the version of MSBuild to be used with this command. Supported values are <em>4</em>, <em>12</em>, <em>14</em>, <em>15</em>. By default the MSBuild in your path is picked, otherwise it defaults to the highest installed version of MSBuild."
           },
@@ -304,7 +304,7 @@
           },
           {
             "Name": "PackageSaveMode",
-            "Type": "PackageSaveMode?",
+            "Type": "PackageSaveMode",
             "Format": "-PackageSaveMode {value}",
             "CustomValue": true,
             "Help": "Specifies the types of files to save after package installation: one of <c>nuspec</c>, <c>nupkg</c>, or <c>nuspec;nupkg</c>."
@@ -317,7 +317,7 @@
           },
           {
             "Name": "Project2ProjectTimeOut",
-            "Type": "int?",
+            "Type": "int",
             "Format": "-Project2ProjectTimeOut {value}",
             "Help": "Timeout in seconds for resolving project-to-project references."
           },
@@ -348,7 +348,7 @@
           },
           {
             "Name": "Verbosity",
-            "Type": "NuGetVerbosity?",
+            "Type": "NuGetVerbosity",
             "Format": "-Verbosity {value}",
             "Help": "<em>(2.5+)</em> Specifies the amount of detail displayed in the output: <em>normal</em>, <em>quiet</em>, <em>detailed</em>."
           }
