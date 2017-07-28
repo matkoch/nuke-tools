@@ -327,7 +327,6 @@
       }
     }
   ],
-  "DataClasses": [],
   "Enumerations": [
     {
       "Name": "DotNetVerbosity",

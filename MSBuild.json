@@ -271,7 +271,6 @@
       }
     }
   ],
-  "DataClasses": [],
   "Enumerations": [
     {
       "Name": "MSBuildToolsVersion",

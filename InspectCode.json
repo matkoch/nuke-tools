@@ -100,7 +100,6 @@
       }
     }
   ],
-  "DataClasses": [],
   "Enumerations": [
     {
       "Name": "InspectCodeSettingsLayers",

@@ -152,7 +152,6 @@
       }
     }
   ],
-  "DataClasses": [],
   "Enumerations": [
     {
       "Name": "ReporterType",

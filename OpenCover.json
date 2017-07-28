@@ -184,7 +184,6 @@
       }
     }
   ],
-  "DataClasses": [],
   "Enumerations": [
     {
       "Name": "OpenCoverVerbosity",

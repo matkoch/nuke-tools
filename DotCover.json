@@ -138,7 +138,6 @@
       }
     }
   ],
-  "DataClasses": [],
   "Enumerations": [
     {
       "Name": "DotCoverReportType",
