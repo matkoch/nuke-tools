@@ -304,9 +304,9 @@
           },
           {
             "Name": "PackageSaveMode",
-            "Type": "PackageSaveMode",
+            "Type": "List<PackageSaveMode>",
             "Format": "-PackageSaveMode {value}",
-            "CustomValue": true,
+            "MainSeparator": ";",
             "Help": "Specifies the types of files to save after package installation: one of <c>nuspec</c>, <c>nupkg</c>, or <c>nuspec;nupkg</c>."
           },
           {
@@ -369,8 +369,7 @@
       "Name": "PackageSaveMode",
       "Values": [
         "Nuspec",
-        "Nupkg",
-        "NuspecAndNupkg"
+        "Nupkg"
       ]
     },
     {

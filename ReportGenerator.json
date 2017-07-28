@@ -32,8 +32,9 @@
           },
           {
             "Name": "ReportTypes",
-            "Type": "ReportTypes",
+            "Type": "List<ReportTypes>",
             "Format": "-reporttypes:{value}",
+            "MainSeparator": ";",
             "Help": "The output formats and scope (separated by semicolon). Default is Html."
           },
           {
@@ -76,7 +77,6 @@
   "Enumerations": [
     {
       "Name": "ReportTypes",
-      "IsFlags": true,
       "Values": [
         "Badges",
         "CsvSummary",
