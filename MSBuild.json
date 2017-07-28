@@ -5,12 +5,12 @@
     "https://github.com/nuke-build/tools/blob/master/LICENSE"
   ],
   "References": [
-    "https://msdn.microsoft.com/en-us/library/ms164311.aspx#//div[@id='mainBody']"
+    "https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference#//div[@class='content']"
   ],
   "Name": "MSBuild",
   "OfficialUrl": "https://msdn.microsoft.com/en-us/library/ms164311.aspx",
   "Help": "The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn't depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn't installed. Visual Studio uses MSBuild to load and build managed projects. The project files in Visual Studio (.csproj,.vbproj, vcxproj, and others) contain MSBuild XML code that executes when you build a project by using the IDE. Visual Studio projects import all the necessary settings and build processes to do typical development work, but you can extend or modify them from within Visual Studio or by using an XML editor.",
-  "CustomExecutable": "MSBuildToolPathResolver.Resolve(MSBuildVersion, MSBuildPlatform)",
+  "CustomExecutable": true,
   "IconClass": "download2",
   "Tasks": [
     {
@@ -57,10 +57,172 @@
           },
           {
             "Name": "Properties",
-            "Type": "Dictionary<string, string>",
+            "Type": "Dictionary<string, object>",
             "Format": "/property:{value}",
             "KeyValueSeparator": "=",
-            "Help": "<p>Set or override the specified project-level properties, where name is the property name and value is the property value. Specify each property separately, or use a semicolon or comma to separate multiple properties, as the following example shows:</p><p><c>/property:WarningLevel=2;OutDir=bin\\Debug</c></p>"
+            "DisallowedCharacter": ";",
+            "Help": "<p>Set or override the specified project-level properties, where name is the property name and value is the property value. Specify each property separately, or use a semicolon or comma to separate multiple properties, as the following example shows:</p><p><c>/property:WarningLevel=2;OutDir=bin\\Debug</c></p>",
+            "Delegates": [
+              {
+                "Name": "RunCodeAnalysis",
+                "Type": "bool"
+              },
+              {
+                "Name": "NoWarn",
+                "Type": "List<int>",
+                "MainSeparator": ";"
+              },
+              {
+                "Name": "WarningsAsErrors",
+                "Type": "List<int>",
+                "MainSeparator": ";"
+              },
+              {
+                "Name": "WarningLevel",
+                "Type": "int"
+              },
+              {
+                "Name": "Configuration",
+                "Type": "string"
+              },
+              {
+                "Name": "TreatWarningsAsErrors",
+                "Type": "bool"
+              },
+              {
+                "Name": "AssemblyVersion",
+                "Type": "string"
+              },
+              {
+                "Name": "FileVersion",
+                "Type": "string"
+              },
+              {
+                "Name": "InformationalVersion",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageOutputPath",
+                "Type": "string"
+              },
+              {
+                "Name": "IncludeSymbols",
+                "Type": "bool"
+              },
+              {
+                "Name": "PackageId",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageVersion",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageVersionPrefix",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageVersionSuffix",
+                "Type": "string"
+              },
+              {
+                "Name": "Authors",
+                "Type": "List<string>",
+                "MainSeparator": ","
+              },
+              {
+                "Name": "Title",
+                "Type": "string"
+              },
+              {
+                "Name": "Description",
+                "Type": "string"
+              },
+              {
+                "Name": "Copyright",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageRequireLicenseAcceptance",
+                "Type": "bool"
+              },
+              {
+                "Name": "PackageLicenseUrl",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageProjectUrl",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageIconUrl",
+                "Type": "string"
+              },
+              {
+                "Name": "PackageTags",
+                "Type": "List<string>",
+                "MainSeparator": " "
+              },
+              {
+                "Name": "PackageReleaseNotes",
+                "Type": "string"
+              },
+              {
+                "Name": "RepositoryUrl",
+                "Type": "string"
+              },
+              {
+                "Name": "RepositoryType",
+                "Type": "string"
+              },
+              {
+                "Name": "RestoreSources",
+                "Type": "List<string>",
+                "MainSeparator": ";",
+                "Help": "List of package sources."
+              },
+              {
+                "Name": "RestorePackagesPath",
+                "Type": "string",
+                "Help": "User packages folder path."
+              },
+              {
+                "Name": "RestoreDisableParallel",
+                "Type": "bool",
+                "Help": "Limit downloads to one at a time."
+              },
+              {
+                "Name": "RestoreConfigFile",
+                "Type": "string",
+                "Help": "Path to a Nuget.Config file to apply."
+              },
+              {
+                "Name": "RestoreNoCache",
+                "Type": "bool",
+                "Help": "If true, avoids using the web cache."
+              },
+              {
+                "Name": "RestoreIgnoreFailedSources",
+                "Type": "bool",
+                "Help": "If true, ignores failing or missing package sources."
+              },
+              {
+                "Name": "RestoreTaskAssemblyFile",
+                "Type": "string",
+                "Help": "Path to <c>NuGet.Build.Tasks.dll</c>."
+              },
+              {
+                "Name": "RestoreGraphProjectInput",
+                "Type": "List<string>",
+                "MainSeparator": ";",
+                "Help": "Semicolon-delimited list of projects to restore, which should contain absolute paths."
+              },
+              {
+                "Name": "RestoreOutputPath",
+                "Type": "string",
+                "Help": "Output folder, defaulting to the obj folder."
+              }
+            ]
           },
           {
             "Name": "Targets",
