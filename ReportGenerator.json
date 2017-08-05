@@ -55,6 +55,7 @@
             "Type": "List<string>",
             "Format": "-assemblyfilters:{value}",
             "Separator": " ",
+            "QuoteMultiple": true,
             "Help": "Optional list of assemblies that should be included or excluded in the report. Default is +*."
           },
           {
@@ -62,6 +63,7 @@
             "Type": "List<string>",
             "Format": "-classfilters:{value}",
             "Separator": " ",
+            "QuoteMultiple": true,
             "Help": "Optional list of classes that should be included or excluded in the report. Exclusion filters take precedence over inclusion filters. Wildcards are allowed. Default is +*."
           },
           {

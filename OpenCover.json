@@ -85,6 +85,7 @@
             "Type": "List<string>",
             "Format": "-filter:{value}",
             "Separator": " ",
+            "QuoteMultiple": true,
             "Help": "<p>A list of filters to apply to selectively include or exclude assemblies and classes from coverage results. Using PartCover syntax, where <c>(+|-)[Assembly-Filter]Type-Filter</c>. For example <c>+[Open*]*</c> includes all types in assemblies starting with <em>Open</em>, <c>-[*]Core.*</c> exclude all types in the <em>Core</em> namespace regardless of the assembly. If no filters are supplied then the default inclusive filter <c>+[*]*</c> is applied automatically. See Understanding Filters for more information.</p><ul><li>NOTE: Multiple filters can be applied by separating them with spaces and enclosing them with quotes: <c>-filter:\"+[*]* -[A*]Name.*\"</c></li><li>NOTE: Exclusion filters take precedence over inclusion filters.</li></ul>"
           },
           {
