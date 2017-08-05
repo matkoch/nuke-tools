@@ -21,7 +21,7 @@
             "Name": "Reports",
             "Type": "List<string>",
             "Format": "-reports:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "The coverage reports that should be parsed (separated by semicolon). Wildcards are allowed."
           },
           {
@@ -34,14 +34,14 @@
             "Name": "ReportTypes",
             "Type": "List<ReportTypes>",
             "Format": "-reporttypes:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "The output formats and scope (separated by semicolon). Default is Html."
           },
           {
             "Name": "SourceDirectories",
             "Type": "List<string>",
             "Format": "-sourcedirs:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Optional directories which contain the corresponding source code (separated by semicolon). The source files are used if coverage report contains classes without path information."
           },
           {
@@ -54,14 +54,14 @@
             "Name": "AssemblyFilters",
             "Type": "List<string>",
             "Format": "-assemblyfilters:{value}",
-            "MainSeparator": " ",
+            "Separator": " ",
             "Help": "Optional list of assemblies that should be included or excluded in the report. Default is +*."
           },
           {
             "Name": "ClassFilters",
             "Type": "List<string>",
             "Format": "-classfilters:{value}",
-            "MainSeparator": " ",
+            "Separator": " ",
             "Help": "Optional list of classes that should be included or excluded in the report. Exclusion filters take precedence over inclusion filters. Wildcards are allowed. Default is +*."
           },
           {

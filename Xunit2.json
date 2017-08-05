@@ -21,7 +21,7 @@
             "Name": "TargetAssemblyWithConfigs",
             "Type": "LookupTable<string, string>",
             "Format": "{value}",
-            "KeyValueSeparator": " ",
+            "ItemFormat": "{key} {value}",
             "Help": "Assemblies to test, and their related related configuration files (ending with .json or .config)."
           },
           {
@@ -94,14 +94,14 @@
             "Name": "Traits",
             "Type": "LookupTable<string, string>",
             "Format": "-trait {value}",
-            "KeyValueSeparator": "=",
+            "ItemFormat": "{key}={value}",
             "Help": "Only run tests with matching name/value traits."
           },
           {
             "Name": "ExcludedTraits",
             "Type": "LookupTable<string, string>",
             "Format": "-notrait {value}",
-            "KeyValueSeparator": "=",
+            "ItemFormat": "{key}={value}",
             "Help": "Do not run tests with matching name/value traits."
           },
           {

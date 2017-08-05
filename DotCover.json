@@ -79,21 +79,21 @@
             "Name": "Scope",
             "Type": "List<string>",
             "Format": "/Scope={value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Allows including assemblies that were not loaded in the specified scope into coverage results. Ant-style patterns are supported here (e.g. <c>ProjectFolder/**/*.dll</c>)."
           },
           {
             "Name": "Filters",
             "Type": "List<string>",
             "Format": "/Filters={value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Specifies coverage filters using the following syntax: <c>+:module=*;class=*;function=*;</c>. Use <c>-:myassembly</c> to exclude an assembly from code coverage. Asterisk wildcard (*) is supported here."
           },
           {
             "Name": "AttributeFilters",
             "Type": "List<string>",
             "Format": "/AttributeFilters={value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Specifies attribute filters using the following syntax: <c>filter1;filter2;...</c>. Asterisk wildcard (*) is supported here."
           },
           {
@@ -106,7 +106,7 @@
             "Name": "SymbolSearchPaths",
             "Type": "List<string>",
             "Format": "/SymbolSearchPaths={value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Specifies additional symbol search paths. Paths to symbol servers (starting with <em>srv*</em> prefix) are supported here."
           },
           {
@@ -125,7 +125,7 @@
             "Name": "ProcessFilters",
             "Type": "List<string>",
             "Format": "/ProcessFilters={value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Specifies process filters. Syntax: <c>+:process1;-:process2</c>."
           },
           {

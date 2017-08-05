@@ -28,7 +28,7 @@
             "Name": "Tests",
             "Type": "List<string>",
             "Format": "--test={value}",
-            "MainSeparator": ",",
+            "Separator": ",",
             "Help": "Comma-separated list of names of tests to run or explore. This option may be repeated. Note that this option is retained for backward compatibility. The --where option can now be used instead."
           },
           {
@@ -47,7 +47,7 @@
             "Name": "Parameters",
             "Type": "Dictionary<string, string>",
             "Format": "--params={value}",
-            "KeyValueSeparator": "=",
+            "ItemFormat": "{key}={value}",
             "Help": "A test parameter specified in the form NAME=VALUE. Multiple parameters may be specified, separated by semicolons or by repeating the --params option multiple times."
           },
           {

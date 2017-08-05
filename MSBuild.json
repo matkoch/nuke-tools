@@ -59,7 +59,7 @@
             "Name": "Properties",
             "Type": "Dictionary<string, object>",
             "Format": "/property:{value}",
-            "KeyValueSeparator": "=",
+            "ItemFormat": "{key}={value}",
             "DisallowedCharacter": ";",
             "Help": "<p>Set or override the specified project-level properties, where name is the property name and value is the property value. Specify each property separately, or use a semicolon or comma to separate multiple properties, as the following example shows:</p><p><c>/property:WarningLevel=2;OutDir=bin\\Debug</c></p>",
             "Delegates": [
@@ -70,12 +70,12 @@
               {
                 "Name": "NoWarn",
                 "Type": "List<int>",
-                "MainSeparator": ";"
+                "Separator": ";"
               },
               {
                 "Name": "WarningsAsErrors",
                 "Type": "List<int>",
-                "MainSeparator": ";"
+                "Separator": ";"
               },
               {
                 "Name": "WarningLevel",
@@ -128,7 +128,7 @@
               {
                 "Name": "Authors",
                 "Type": "List<string>",
-                "MainSeparator": ","
+                "Separator": ","
               },
               {
                 "Name": "Title",
@@ -161,7 +161,7 @@
               {
                 "Name": "PackageTags",
                 "Type": "List<string>",
-                "MainSeparator": " "
+                "Separator": " "
               },
               {
                 "Name": "PackageReleaseNotes",
@@ -178,7 +178,7 @@
               {
                 "Name": "RestoreSources",
                 "Type": "List<string>",
-                "MainSeparator": ";",
+                "Separator": ";",
                 "Help": "List of package sources."
               },
               {
@@ -214,7 +214,7 @@
               {
                 "Name": "RestoreGraphProjectInput",
                 "Type": "List<string>",
-                "MainSeparator": ";",
+                "Separator": ";",
                 "Help": "Semicolon-delimited list of projects to restore, which should contain absolute paths."
               },
               {
@@ -228,7 +228,7 @@
             "Name": "Targets",
             "Type": "List<string>",
             "Format": "/target:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "<p>Build the specified targets in the project. Specify each target separately, or use a semicolon or comma to separate multiple targets, as the following example shows:<br/><c>/target:Resources;Compile</c></p><p>If you specify any targets by using this switch, they are run instead of any targets in the DefaultTargets attribute in the project file. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/ee216359.aspx\">Target Build Order</a> and <a href=\"https://msdn.microsoft.com/en-us/library/ms171463.aspx\">How to: Specify Which Target to Build First</a>.</p><p>A target is a group of tasks. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/ms171462.aspx\">Targets</a>.</p>"
           },
           {

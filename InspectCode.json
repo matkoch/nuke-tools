@@ -55,7 +55,7 @@
             "Name": "DisableSettingsLayers",
             "Type": "List<InspectCodeSettingsLayers>",
             "Format": "--disable-settings-layers={value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Disables specified <a href=\"https://www.jetbrains.com/help/resharper/Sharing_Configuration_Options.html#layers\">settings layers</a>. Accepted values: <c>GlobalAll</c>, <c>GlobalPerProduct</c>, <c>SolutionShared</c>, <c>SolutionPersonal</c>."
           },
           {
@@ -80,7 +80,7 @@
             "Name": "Properties",
             "Type": "Dictionary<string, string>",
             "Format": "--properties={value}",
-            "MainSeparator": ";",
+            "ItemFormat": "{key}={value}",
             "KeyValueSeparator": "=",
             "Help": "Lets you override MSBuild properties. The specified properties are applied to all analyzed projects. Currently, there is no direct way to set a property to a specific project only. The workaround is to create a custom property in this project and assign it to the desired property, then use the custom property in dupFinder parameters."
           },

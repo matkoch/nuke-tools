@@ -50,7 +50,7 @@
             "Name": "CoverByTests",
             "Type": "List<string>",
             "Format": "-coverbytest:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Gather coverage by test by analyzing the assemblies that match these filters for Test methods. Currently only MSTest, XUnit, and NUnit tests are supported; other frameworks can be added on request - please raise support request on GitHub."
           },
           {
@@ -63,35 +63,35 @@
             "Name": "ExcludeByAttributes",
             "Type": "List<string>",
             "Format": "-excludebyattribute:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Exclude a class or method by filter(s) that match attributes that have been applied. An <c>*</c> can be used as a wildcard."
           },
           {
             "Name": "ExcludeByFile",
             "Type": "List<string>",
             "Format": "-excludebyfile:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Exclude a class (or methods) by filter(s) that match the filenames. An <c>*</c> can be used as a wildcard."
           },
           {
             "Name": "ExcludeDirectories",
             "Type": "List<string>",
             "Format": "-excludedirs:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Assemblies being loaded from these locations will be ignored."
           },
           {
             "Name": "Filters",
             "Type": "List<string>",
             "Format": "-filter:{value}",
-            "MainSeparator": " ",
+            "Separator": " ",
             "Help": "<p>A list of filters to apply to selectively include or exclude assemblies and classes from coverage results. Using PartCover syntax, where <c>(+|-)[Assembly-Filter]Type-Filter</c>. For example <c>+[Open*]*</c> includes all types in assemblies starting with <em>Open</em>, <c>-[*]Core.*</c> exclude all types in the <em>Core</em> namespace regardless of the assembly. If no filters are supplied then the default inclusive filter <c>+[*]*</c> is applied automatically. See Understanding Filters for more information.</p><ul><li>NOTE: Multiple filters can be applied by separating them with spaces and enclosing them with quotes: <c>-filter:\"+[*]* -[A*]Name.*\"</c></li><li>NOTE: Exclusion filters take precedence over inclusion filters.</li></ul>"
           },
           {
             "Name": "HideSkippedKinds",
             "Type": "List<OpenCoverSkipping>",
             "Format": "-hideskipped:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Remove information from output file (-output:) that relates to classes/modules that have been skipped (filtered) due to the use of the switches <c>-excludebyfile</c>, <c>-excludebyattribute</c> and <c>-filter</c> or where the PDB is missing. Multiple arguments can be used by separating them with a semicolon, e.g. <c>-hideskipped:File;MissingPdb;Attribute</c>"
           },
           {
@@ -141,7 +141,7 @@
             "Name": "SearchDirectories",
             "Type": "List<string>",
             "Format": "-searchdirs:{value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Alternative locations to look for PDBs."
           },
           {

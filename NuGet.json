@@ -190,8 +190,8 @@
             "Name": "Properties",
             "Type": "Dictionary<string, string>",
             "Format": "-Properties {value}",
-            "MainSeparator": ";",
-            "KeyValueSeparator": "=",
+            "ItemFormat": "{key}={value}",
+            "Separator": ";",
             "Help": "Specifies a list of <c>token=value</c> pairs, separated by semicolons, where each occurrence of <c>$token$</c> in the <c>.nuspec</c> file will be replaced with the given value. Values can be strings in quotation marks."
           },
           {
@@ -263,7 +263,7 @@
             "Name": "FallbackSource",
             "Type": "List<string>",
             "Format": "-FallbackSource {value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "<em>(3.2+)</em> A list of package sources to use as fallbacks in case the package isn't found in the primary or default source."
           },
           {
@@ -306,7 +306,7 @@
             "Name": "PackageSaveMode",
             "Type": "List<PackageSaveMode>",
             "Format": "-PackageSaveMode {value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Specifies the types of files to save after package installation: one of <c>nuspec</c>, <c>nupkg</c>, or <c>nuspec;nupkg</c>."
           },
           {
@@ -343,7 +343,7 @@
             "Name": "Source",
             "Type": "List<string>",
             "Format": "-Source {value}",
-            "MainSeparator": ";",
+            "Separator": ";",
             "Help": "Specifies list of package sources to use for the restore."
           },
           {
