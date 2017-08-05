@@ -137,15 +137,16 @@
           {
             "Name": "ResultFormat",
             "Type": "ResultFormat",
-            "Format": "-{value}",
+            "NoArgument": true,
             "NoExtensionMethod": true,
             "Help": "Result formats:<ul><li><c>-xml</c>: output results to xUnit.net v2 XML file</li><li><c>-xmlv1</c>: output results to xUnit.net v1 XML file</li><li><c>-nunit</c>: output results to NUnit v2.5 XML file</li><li><c>-html</c>: output results to HTML file</li></ul>"
           },
           {
             "Name": "ResultPath",
             "Type": "string",
-            "Format": "{value}",
+            "Format": "-{value}",
             "NoExtensionMethod": true,
+            "CustomValue": true,
             "Help": "The result file output path."
           }
         ]
