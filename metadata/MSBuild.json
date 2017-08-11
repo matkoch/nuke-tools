@@ -1,280 +1,281 @@
 {
-  "License": [
+  "$schema": "_schema.json#",
+  "license": [
     "Copyright Matthias Koch 2017.",
     "Distributed under the MIT License.",
     "https://github.com/nuke-build/tools/blob/master/LICENSE"
   ],
-  "References": [
+  "references": [
     "https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-command-line-reference#//div[@class='content']"
   ],
-  "Name": "MSBuild",
-  "OfficialUrl": "https://msdn.microsoft.com/en-us/library/ms164311.aspx",
-  "Help": "The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn't depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn't installed. Visual Studio uses MSBuild to load and build managed projects. The project files in Visual Studio (.csproj,.vbproj, vcxproj, and others) contain MSBuild XML code that executes when you build a project by using the IDE. Visual Studio projects import all the necessary settings and build processes to do typical development work, but you can extend or modify them from within Visual Studio or by using an XML editor.",
-  "CustomExecutable": true,
-  "IconClass": "download2",
-  "Tasks": [
+  "name": "MSBuild",
+  "officialUrl": "https://msdn.microsoft.com/en-us/library/ms164311.aspx",
+  "help": "The Microsoft Build Engine is a platform for building applications. This engine, which is also known as MSBuild, provides an XML schema for a project file that controls how the build platform processes and builds software. Visual Studio uses MSBuild, but it doesn't depend on Visual Studio. By invoking msbuild.exe on your project or solution file, you can orchestrate and build products in environments where Visual Studio isn't installed. Visual Studio uses MSBuild to load and build managed projects. The project files in Visual Studio (.csproj,.vbproj, vcxproj, and others) contain MSBuild XML code that executes when you build a project by using the IDE. Visual Studio projects import all the necessary settings and build processes to do typical development work, but you can extend or modify them from within Visual Studio or by using an XML editor.",
+  "customExecutable": true,
+  "iconClass": "download2",
+  "tasks": [
     {
-      "SettingsClass": {
-        "Properties": [
+      "settingsClass": {
+        "properties": [
           {
-            "Name": "TargetPath",
-            "Type": "string",
-            "Assertion": "FileOrNull",
-            "Format": "{value}",
-            "CreateOverload": true,
-            "Help": "The solution or project file on which MSBuild is executed."
+            "name": "TargetPath",
+            "type": "string",
+            "assertion": "FileOrNull",
+            "format": "{value}",
+            "createOverload": true,
+            "help": "The solution or project file on which MSBuild is executed."
           },
           {
-            "Name": "DetailedSummary",
-            "Type": "bool",
-            "Format": "/detailedsummary",
-            "Help": "Show detailed information at the end of the build log about the configurations that were built and how they were scheduled to nodes."
+            "name": "DetailedSummary",
+            "type": "bool",
+            "format": "/detailedsummary",
+            "help": "Show detailed information at the end of the build log about the configurations that were built and how they were scheduled to nodes."
           },
           {
-            "Name": "MaxCpuCount",
-            "Type": "int",
-            "Format": "/maxcpucount:{value}",
-            "Help": "<p>Specifies the maximum number of concurrent processes to use when building. If you don't include this switch, the default value is 1. If you include this switch without specifying a value, MSBuild will use up to the number of processors in the computer. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/bb651793.aspx\">Building Multiple Projects in Parallel</a>.</p><p>The following example instructs MSBuild to build using three MSBuild processes, which allows three projects to build at the same time:</p><p><c>msbuild myproject.proj /maxcpucount:3</c></p>"
+            "name": "MaxCpuCount",
+            "type": "int",
+            "format": "/maxcpucount:{value}",
+            "help": "<p>Specifies the maximum number of concurrent processes to use when building. If you don't include this switch, the default value is 1. If you include this switch without specifying a value, MSBuild will use up to the number of processors in the computer. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/bb651793.aspx\">Building Multiple Projects in Parallel</a>.</p><p>The following example instructs MSBuild to build using three MSBuild processes, which allows three projects to build at the same time:</p><p><c>msbuild myproject.proj /maxcpucount:3</c></p>"
           },
           {
-            "Name": "NodeReuse",
-            "Type": "bool",
-            "Format": "/nodeReuse:{value}",
-            "Help": "<p>Enable or disable the re-use of MSBuild nodes. You can specify the following values: <ul><li><c>true</c>: Nodes remain after the build finishes so that subsequent builds can use them (default).</li><li><c>false</c>. Nodes don't remain after the build completes.</li></ul></p><p>A node corresponds to a project that's executing. If you include the <c>/maxcpucount</c> switch, multiple nodes can execute concurrently.</p>"
+            "name": "NodeReuse",
+            "type": "bool",
+            "format": "/nodeReuse:{value}",
+            "help": "<p>Enable or disable the re-use of MSBuild nodes. You can specify the following values: <ul><li><c>true</c>: Nodes remain after the build finishes so that subsequent builds can use them (default).</li><li><c>false</c>. Nodes don't remain after the build completes.</li></ul></p><p>A node corresponds to a project that's executing. If you include the <c>/maxcpucount</c> switch, multiple nodes can execute concurrently.</p>"
           },
           {
-            "Name": "NoLogo",
-            "Type": "bool",
-            "Format": "/nologo",
-            "Help": "Don't display the startup banner or the copyright message."
+            "name": "NoLogo",
+            "type": "bool",
+            "format": "/nologo",
+            "help": "Don't display the startup banner or the copyright message."
           },
           {
-            "Name": "TargetPlatform",
-            "Type": "MSBuildTargetPlatform",
-            "Format": "/property:Platform={value}",
-            "CustomValue": true,
-            "Help": "The target platform for which the project is built to run on."
+            "name": "TargetPlatform",
+            "type": "MSBuildTargetPlatform",
+            "format": "/property:Platform={value}",
+            "customValue": true,
+            "help": "The target platform for which the project is built to run on."
           },
           {
-            "Name": "Properties",
-            "Type": "Dictionary<string, object>",
-            "Format": "/property:{value}",
-            "ItemFormat": "{key}={value}",
-            "DisallowedCharacter": ";",
-            "Help": "<p>Set or override the specified project-level properties, where name is the property name and value is the property value. Specify each property separately, or use a semicolon or comma to separate multiple properties, as the following example shows:</p><p><c>/property:WarningLevel=2;OutDir=bin\\Debug</c></p>",
-            "Delegates": [
+            "name": "Properties",
+            "type": "Dictionary<string, object>",
+            "format": "/property:{value}",
+            "itemFormat": "{key}={value}",
+            "disallowedCharacter": ";",
+            "help": "<p>Set or override the specified project-level properties, where name is the property name and value is the property value. Specify each property separately, or use a semicolon or comma to separate multiple properties, as the following example shows:</p><p><c>/property:WarningLevel=2;OutDir=bin\\Debug</c></p>",
+            "delegates": [
               {
-                "Name": "RunCodeAnalysis",
-                "Type": "bool"
+                "name": "RunCodeAnalysis",
+                "type": "bool"
               },
               {
-                "Name": "NoWarn",
-                "Type": "List<int>",
-                "Separator": ";"
+                "name": "NoWarn",
+                "type": "List<int>",
+                "separator": ";"
               },
               {
-                "Name": "WarningsAsErrors",
-                "Type": "List<int>",
-                "Separator": ";"
+                "name": "WarningsAsErrors",
+                "type": "List<int>",
+                "separator": ";"
               },
               {
-                "Name": "WarningLevel",
-                "Type": "int"
+                "name": "WarningLevel",
+                "type": "int"
               },
               {
-                "Name": "Configuration",
-                "Type": "string"
+                "name": "Configuration",
+                "type": "string"
               },
               {
-                "Name": "TreatWarningsAsErrors",
-                "Type": "bool"
+                "name": "TreatWarningsAsErrors",
+                "type": "bool"
               },
               {
-                "Name": "AssemblyVersion",
-                "Type": "string"
+                "name": "AssemblyVersion",
+                "type": "string"
               },
               {
-                "Name": "FileVersion",
-                "Type": "string"
+                "name": "FileVersion",
+                "type": "string"
               },
               {
-                "Name": "InformationalVersion",
-                "Type": "string"
+                "name": "InformationalVersion",
+                "type": "string"
               },
               {
-                "Name": "PackageOutputPath",
-                "Type": "string"
+                "name": "PackageOutputPath",
+                "type": "string"
               },
               {
-                "Name": "IncludeSymbols",
-                "Type": "bool"
+                "name": "IncludeSymbols",
+                "type": "bool"
               },
               {
-                "Name": "PackageId",
-                "Type": "string"
+                "name": "PackageId",
+                "type": "string"
               },
               {
-                "Name": "PackageVersion",
-                "Type": "string"
+                "name": "PackageVersion",
+                "type": "string"
               },
               {
-                "Name": "PackageVersionPrefix",
-                "Type": "string"
+                "name": "PackageVersionPrefix",
+                "type": "string"
               },
               {
-                "Name": "PackageVersionSuffix",
-                "Type": "string"
+                "name": "PackageVersionSuffix",
+                "type": "string"
               },
               {
-                "Name": "Authors",
-                "Type": "List<string>",
-                "Separator": ","
+                "name": "Authors",
+                "type": "List<string>",
+                "separator": ","
               },
               {
-                "Name": "Title",
-                "Type": "string"
+                "name": "Title",
+                "type": "string"
               },
               {
-                "Name": "Description",
-                "Type": "string"
+                "name": "Description",
+                "type": "string"
               },
               {
-                "Name": "Copyright",
-                "Type": "string"
+                "name": "Copyright",
+                "type": "string"
               },
               {
-                "Name": "PackageRequireLicenseAcceptance",
-                "Type": "bool"
+                "name": "PackageRequireLicenseAcceptance",
+                "type": "bool"
               },
               {
-                "Name": "PackageLicenseUrl",
-                "Type": "string"
+                "name": "PackageLicenseUrl",
+                "type": "string"
               },
               {
-                "Name": "PackageProjectUrl",
-                "Type": "string"
+                "name": "PackageProjectUrl",
+                "type": "string"
               },
               {
-                "Name": "PackageIconUrl",
-                "Type": "string"
+                "name": "PackageIconUrl",
+                "type": "string"
               },
               {
-                "Name": "PackageTags",
-                "Type": "List<string>",
-                "Separator": " "
+                "name": "PackageTags",
+                "type": "List<string>",
+                "separator": " "
               },
               {
-                "Name": "PackageReleaseNotes",
-                "Type": "string"
+                "name": "PackageReleaseNotes",
+                "type": "string"
               },
               {
-                "Name": "RepositoryUrl",
-                "Type": "string"
+                "name": "RepositoryUrl",
+                "type": "string"
               },
               {
-                "Name": "RepositoryType",
-                "Type": "string"
+                "name": "RepositoryType",
+                "type": "string"
               },
               {
-                "Name": "RestoreSources",
-                "Type": "List<string>",
-                "Separator": ";",
-                "Help": "List of package sources."
+                "name": "RestoreSources",
+                "type": "List<string>",
+                "separator": ";",
+                "help": "List of package sources."
               },
               {
-                "Name": "RestorePackagesPath",
-                "Type": "string",
-                "Help": "User packages folder path."
+                "name": "RestorePackagesPath",
+                "type": "string",
+                "help": "User packages folder path."
               },
               {
-                "Name": "RestoreDisableParallel",
-                "Type": "bool",
-                "Help": "Limit downloads to one at a time."
+                "name": "RestoreDisableParallel",
+                "type": "bool",
+                "help": "Limit downloads to one at a time."
               },
               {
-                "Name": "RestoreConfigFile",
-                "Type": "string",
-                "Help": "Path to a Nuget.Config file to apply."
+                "name": "RestoreConfigFile",
+                "type": "string",
+                "help": "Path to a Nuget.Config file to apply."
               },
               {
-                "Name": "RestoreNoCache",
-                "Type": "bool",
-                "Help": "If true, avoids using the web cache."
+                "name": "RestoreNoCache",
+                "type": "bool",
+                "help": "If true, avoids using the web cache."
               },
               {
-                "Name": "RestoreIgnoreFailedSources",
-                "Type": "bool",
-                "Help": "If true, ignores failing or missing package sources."
+                "name": "RestoreIgnoreFailedSources",
+                "type": "bool",
+                "help": "If true, ignores failing or missing package sources."
               },
               {
-                "Name": "RestoreTaskAssemblyFile",
-                "Type": "string",
-                "Help": "Path to <c>NuGet.Build.Tasks.dll</c>."
+                "name": "RestoreTaskAssemblyFile",
+                "type": "string",
+                "help": "Path to <c>NuGet.Build.Tasks.dll</c>."
               },
               {
-                "Name": "RestoreGraphProjectInput",
-                "Type": "List<string>",
-                "Separator": ";",
-                "Help": "Semicolon-delimited list of projects to restore, which should contain absolute paths."
+                "name": "RestoreGraphProjectInput",
+                "type": "List<string>",
+                "separator": ";",
+                "help": "Semicolon-delimited list of projects to restore, which should contain absolute paths."
               },
               {
-                "Name": "RestoreOutputPath",
-                "Type": "string",
-                "Help": "Output folder, defaulting to the obj folder."
+                "name": "RestoreOutputPath",
+                "type": "string",
+                "help": "Output folder, defaulting to the obj folder."
               }
             ]
           },
           {
-            "Name": "Targets",
-            "Type": "List<string>",
-            "Format": "/target:{value}",
-            "Separator": ";",
-            "Help": "<p>Build the specified targets in the project. Specify each target separately, or use a semicolon or comma to separate multiple targets, as the following example shows:<br/><c>/target:Resources;Compile</c></p><p>If you specify any targets by using this switch, they are run instead of any targets in the DefaultTargets attribute in the project file. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/ee216359.aspx\">Target Build Order</a> and <a href=\"https://msdn.microsoft.com/en-us/library/ms171463.aspx\">How to: Specify Which Target to Build First</a>.</p><p>A target is a group of tasks. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/ms171462.aspx\">Targets</a>.</p>"
+            "name": "Targets",
+            "type": "List<string>",
+            "format": "/target:{value}",
+            "separator": ";",
+            "help": "<p>Build the specified targets in the project. Specify each target separately, or use a semicolon or comma to separate multiple targets, as the following example shows:<br/><c>/target:Resources;Compile</c></p><p>If you specify any targets by using this switch, they are run instead of any targets in the DefaultTargets attribute in the project file. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/ee216359.aspx\">Target Build Order</a> and <a href=\"https://msdn.microsoft.com/en-us/library/ms171463.aspx\">How to: Specify Which Target to Build First</a>.</p><p>A target is a group of tasks. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/ms171462.aspx\">Targets</a>.</p>"
           },
           {
-            "Name": "ToolsVersion",
-            "Type": "MSBuildToolsVersion",
-            "Format": "/toolsversion:{value}",
-            "Help": "<p>Specifies the version of the Toolset to use to build the project, as the following example shows: <c>/toolsversion:3.5</c></p><p>By using this switch, you can build a project and specify a version that differs from the version that's specified in the <a href=\"https://msdn.microsoft.com/en-us/library/bcxfsh87.aspx\">Project Element (MSBuild)</a>. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/bb383985.aspx\">Overriding ToolsVersion Settings</a>.</p><p>For MSBuild 4.5, you can specify the following values for version: 2.0, 3.5, and 4.0. If you specify 4.0, the VisualStudioVersion build property specifies which sub-toolset to use. For more information, see the Sub-toolsets section of <a href=\"https://msdn.microsoft.com/en-us/library/bb383796.aspx\">Toolset (ToolsVersion)</a>.</p><p>A Toolset consists of tasks, targets, and tools that are used to build an application. The tools include compilers such as csc.exe and vbc.exe. For more information about Toolsets, see <a href=\"https://msdn.microsoft.com/en-us/library/bb383796.aspx\">Toolset (ToolsVersion)</a>, <a href=\"https://msdn.microsoft.com/en-us/library/bb397428.aspx\">Standard and Custom Toolset Configurations</a>, and <a href=\"https://msdn.microsoft.com/en-us/library/hh264223.aspx\">Multitargeting</a>. Note: The toolset version isn't the same as the target framework, which is the version of the .NET Framework on which a project is built to run. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/hh264221.aspx\">Target Framework and Target Platform</a>.</p>"
+            "name": "ToolsVersion",
+            "type": "MSBuildToolsVersion",
+            "format": "/toolsversion:{value}",
+            "help": "<p>Specifies the version of the Toolset to use to build the project, as the following example shows: <c>/toolsversion:3.5</c></p><p>By using this switch, you can build a project and specify a version that differs from the version that's specified in the <a href=\"https://msdn.microsoft.com/en-us/library/bcxfsh87.aspx\">Project Element (MSBuild)</a>. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/bb383985.aspx\">Overriding ToolsVersion Settings</a>.</p><p>For MSBuild 4.5, you can specify the following values for version: 2.0, 3.5, and 4.0. If you specify 4.0, the VisualStudioVersion build property specifies which sub-toolset to use. For more information, see the Sub-toolsets section of <a href=\"https://msdn.microsoft.com/en-us/library/bb383796.aspx\">Toolset (ToolsVersion)</a>.</p><p>A Toolset consists of tasks, targets, and tools that are used to build an application. The tools include compilers such as csc.exe and vbc.exe. For more information about Toolsets, see <a href=\"https://msdn.microsoft.com/en-us/library/bb383796.aspx\">Toolset (ToolsVersion)</a>, <a href=\"https://msdn.microsoft.com/en-us/library/bb397428.aspx\">Standard and Custom Toolset Configurations</a>, and <a href=\"https://msdn.microsoft.com/en-us/library/hh264223.aspx\">Multitargeting</a>. Note: The toolset version isn't the same as the target framework, which is the version of the .NET Framework on which a project is built to run. For more information, see <a href=\"https://msdn.microsoft.com/en-us/library/hh264221.aspx\">Target Framework and Target Platform</a>.</p>"
           },
           {
-            "Name": "MSBuildVersion",
-            "Type": "MSBuildVersion?",
-            "NoArgument": true,
-            "Help": "Specifies the version of MSBuild for building."
+            "name": "MSBuildVersion",
+            "type": "MSBuildVersion?",
+            "noArgument": true,
+            "help": "Specifies the version of MSBuild for building."
           },
           {
-            "Name": "Verbosity",
-            "Type": "MSBuildVerbosity",
-            "Format": "/verbosity:{value}",
-            "Help": "<p>Specifies the amount of information to display in the build log. Each logger displays events based on the verbosity level that you set for that logger.</p><p>You can specify the following verbosity levels: <c>q[uiet]</c>, <c>m[inimal]</c>, <c>n[ormal]</c>, <c>d[etailed]</c>, and <c>diag[nostic]</c>.</p><p>The following setting is an example: <c>/verbosity:quiet</c></p>"
+            "name": "Verbosity",
+            "type": "MSBuildVerbosity",
+            "format": "/verbosity:{value}",
+            "help": "<p>Specifies the amount of information to display in the build log. Each logger displays events based on the verbosity level that you set for that logger.</p><p>You can specify the following verbosity levels: <c>q[uiet]</c>, <c>m[inimal]</c>, <c>n[ormal]</c>, <c>d[etailed]</c>, and <c>diag[nostic]</c>.</p><p>The following setting is an example: <c>/verbosity:quiet</c></p>"
           },
           {
-            "Name": "MSBuildPlatform",
-            "Type": "MSBuildPlatform?",
-            "NoArgument": true,
-            "Help": "Specifies the platform to use when building."
+            "name": "MSBuildPlatform",
+            "type": "MSBuildPlatform?",
+            "noArgument": true,
+            "help": "Specifies the platform to use when building."
           },
           {
-            "Name": "Loggers",
-            "Type": "List<string>",
-            "Format": "/logger:{value}",
-            "Help": "Specifies the loggers to use to log events from MSBuild."
+            "name": "Loggers",
+            "type": "List<string>",
+            "format": "/logger:{value}",
+            "help": "Specifies the loggers to use to log events from MSBuild."
           },
           {
-            "Name": "NoConsoleLogger",
-            "Type": "bool",
-            "Format": "/noconsolelogger",
-            "Help": "Disable the default console logger, and don't log events to the console."
+            "name": "NoConsoleLogger",
+            "type": "bool",
+            "format": "/noconsolelogger",
+            "help": "Disable the default console logger, and don't log events to the console."
           }
         ]
       }
     }
   ],
-  "Enumerations": [
+  "enumerations": [
     {
-      "Name": "MSBuildToolsVersion",
-      "Values": [
+      "name": "MSBuildToolsVersion",
+      "values": [
         "2.0",
         "3.5",
         "4.0",
@@ -284,8 +285,8 @@
       ]
     },
     {
-      "Name": "MSBuildVerbosity",
-      "Values": [
+      "name": "MSBuildVerbosity",
+      "values": [
         "Quiet",
         "Minimal",
         "Normal",
@@ -294,8 +295,8 @@
       ]
     },
     {
-      "Name": "MSBuildTargetPlatform",
-      "Values": [
+      "name": "MSBuildTargetPlatform",
+      "values": [
         "MSIL",
         "x86",
         "x64",

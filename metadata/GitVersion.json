@@ -1,26 +1,27 @@
 {
-  "License": [
+  "$schema": "_schema.json#",
+  "license": [
     "Copyright Matthias Koch 2017.",
     "Distributed under the MIT License.",
     "https://github.com/nuke-build/tools/blob/master/LICENSE"
   ],
-  "References": [
+  "references": [
     "https://raw.githubusercontent.com/GitTools/GitVersion/master/docs/more-info/variables.md"
   ],
-  "Name": "GitVersion",
-  "OfficialUrl": "http://gitversion.readthedocs.io/en/stable/",
-  "Help": "GitVersion is a tool to help you achieve Semantic Versioning on your project.",
-  "PackageId": "GitVersion.CommandLine",
-  "PackageExecutable": "GitVersion.exe",
-  "IconClass": "podium",
-  "Tasks": [
+  "name": "GitVersion",
+  "officialUrl": "http://gitversion.readthedocs.io/en/stable/",
+  "help": "GitVersion is a tool to help you achieve Semantic Versioning on your project.",
+  "packageId": "GitVersion.CommandLine",
+  "packageExecutable": "GitVersion.exe",
+  "iconClass": "podium",
+  "tasks": [
     {
-      "SettingsClass": {
-        "Properties": [
+      "settingsClass": {
+        "properties": [
           {
-            "Name": "UpdateAssemblyInfo",
-            "Type": "bool",
-            "Format": "/updateassemblyinfo"
+            "name": "UpdateAssemblyInfo",
+            "type": "bool",
+            "format": "/updateassemblyinfo"
           }
         ]
       }

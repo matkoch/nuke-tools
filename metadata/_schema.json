@@ -4,7 +4,6 @@
   "id": "nuke-tools",
   "type": "object",
   "properties": {
-
     "license": {
       "type": "array",
       "description": "Contains the license header.",
