@@ -81,7 +81,6 @@
             "Type": "Dictionary<string, string>",
             "Format": "--properties={value}",
             "ItemFormat": "{key}={value}",
-            "KeyValueSeparator": "=",
             "Help": "Lets you override MSBuild properties. The specified properties are applied to all analyzed projects. Currently, there is no direct way to set a property to a specific project only. The workaround is to create a custom property in this project and assign it to the desired property, then use the custom property in dupFinder parameters."
           },
           {
