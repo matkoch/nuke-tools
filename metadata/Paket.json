@@ -25,110 +25,104 @@
           {
             "name": "PackageId",
             "type": "string",
-            "format": "nuget {value}",
-            "help": "NuGet package id."
+            "format": "{value}",
+            "help": "NuGet package ID."
           },
           {
             "name": "PackageVersion",
             "type": "string",
-            "format": "version {value}",
-            "help": "Allows to specify version of the package."
+            "format": "--version {value}",
+            "help": "Dependency version constraint."
           },
           {
             "name": "DependencyGroup",
             "type": "string",
-            "format": "group {value}",
-            "help": "Allows to specify the dependency group."
+            "format": "--group {value}",
+            "help": "Dependency group to update. Default is <em>all groups</em>."
+          },
+          {
+            "name": "CreateNewBindingFiles",
+            "type": "bool",
+            "format": "--create-new-binding-files",
+            "help": "Creates binding redirect files if needed."
           },
           {
             "name": "Force",
             "type": "bool",
             "format": "--force",
-            "help": "Forces the download and reinstallation of all packages."
+            "help": "Force download and reinstallation of all dependencies."
           },
           {
             "name": "Redirects",
             "type": "bool",
             "format": "--redirects",
-            "help": "Creates binding redirects for the NuGet packages."
-          },
-          {
-            "name": "CreateNewBindingFiles",
-            "type": "bool",
-            "format": "--createnewbindingfiles",
-            "help": "Creates binding redirect files if needed."
+            "help": "Create binding redirects."
           },
           {
             "name": "CleanRedirects",
             "type": "bool",
             "format": "--clean-redirects",
-            "help": "Removes all binding redirects that are not specified by Paket."
+            "help": "Remove binding redirects that were not created by Paket."
           },
           {
             "name": "NoInstall",
             "type": "bool",
             "format": "--no-install",
-            "help": "Skips paket install process (patching of csproj, fsproj, ... files) after the generation of paket.lock file."
+            "help": "Do not modify projects."
           },
           {
             "name": "KeepMajor",
             "type": "bool",
             "format": "--keep-major",
-            "help": "Allows only updates that are not changing the major version of the NuGet packages."
+            "help": "Only allow updates that preserve the major version."
           },
           {
             "name": "KeepMinor",
             "type": "bool",
             "format": "--keep-minor",
-            "help": "Allows only updates that are not changing the minor version of the NuGet packages."
+            "help": "Only allow updates that preserve the minor version."
           },
           {
             "name": "KeepPatch",
             "type": "bool",
             "format": "--keep-patch",
-            "help": "Allows only updates that are not changing the patch version of the NuGet packages."
+            "help": "Only allow updates that preserve the patch version."
           },
           {
             "name": "Filter",
             "type": "bool",
             "format": "--filter",
-            "help": "Treat the nuget parameter as a regex to filter packages rather than an exact match."
+            "help": "Treat the NuGet package ID as a regex to filter packages."
           },
           {
-            "name": "TouchAffectedRefs",
+            "name": "TouchAffectedReferences",
             "type": "bool",
             "format": "--touch-affected-refs",
-            "help": "Touches project files referencing packages which are affected, to help incremental build tools detecting the change."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Enable verbose console output for the paket process."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Specify a log file for the paket process."
+            "help": "Touch project files referencing affected dependencies, to help incremental build tools detecting the change."
           },
           {
             "name": "Silent",
             "type": "bool",
             "format": "--silent",
-            "help": "Suppress console output for the paket process."
+            "help": "Suppress console output."
           },
           {
-            "name": "ShowVersion",
+            "name": "Verbose",
             "type": "bool",
-            "format": "--version",
-            "help": "Display the version."
+            "format": "--verbose",
+            "help": "Print detailed information to the console."
+          },
+          {
+            "name": "LogFile",
+            "type": "string",
+            "format": "--log-file {value}",
+            "help": "Print output to a file."
           },
           {
             "name": "FromBootstrapper",
             "type": "bool",
             "format": "--from-bootstrapper",
-            "help": "Call coming from the '--run' feature of the bootstrapper."
+            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
@@ -142,13 +136,13 @@
             "name": "Force",
             "type": "bool",
             "format": "--force",
-            "help": "Forces the download of all packages."
+            "help": "Force download and reinstallation of all dependencies."
           },
           {
             "name": "OnlyReferenced",
             "type": "bool",
             "format": "--only-referenced",
-            "help": "Allows to restore packages that are referenced in paket.references files, instead of all packages in paket.dependencies."
+            "help": "Only restore packages that are referenced by paket.references files."
           },
           {
             "name": "TouchAffectedRefs",
@@ -160,67 +154,61 @@
             "name": "IgnoreChecks",
             "type": "bool",
             "format": "--ignore-checks",
-            "help": "Skips the test if paket.dependencies and paket.lock are in sync."
+            "help": "Do not check if paket.dependencies and paket.lock are in sync."
           },
           {
             "name": "FailOnChecks",
             "type": "bool",
             "format": "--fail-on-checks",
-            "help": "Causes the restore to fail if any of the checks fail."
+            "help": "Abort if any checks fail."
           },
           {
             "name": "DependencyGroup",
             "type": "string",
-            "format": "group {value}",
-            "help": "Allows to restore a single group."
+            "format": "--group {value}",
+            "help": "Restore dependencies of a single group."
           },
           {
             "name": "ProjectFile",
             "type": "string",
             "format": "--project {value}",
-            "help": "Allows to restore dependencies for a project."
+            "help": "Restore dependencies of a single project."
           },
           {
             "name": "ReferencesFiles",
             "type": "List<string>",
             "format": "--references-files {value}",
-            "help": "Allows to restore all packages from the given paket.references files."
+            "help": "Restore packages from a paket.references file."
           },
           {
             "name": "TargetFramework",
             "type": "string",
             "format": "--target-framework {value}",
-            "help": "Allows to restore only for a specified target framework."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Enable verbose console output for the paket process."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Specify a log file for the paket process."
+            "help": "Restore only for the specified target framework."
           },
           {
             "name": "Silent",
             "type": "bool",
             "format": "--silent",
-            "help": "Suppress console output for the paket process."
+            "help": "Suppress console output."
           },
           {
-            "name": "ShowVersion",
+            "name": "Verbose",
             "type": "bool",
-            "format": "--version",
-            "help": "Display the version."
+            "format": "--verbose",
+            "help": "Print detailed information to the console."
+          },
+          {
+            "name": "LogFile",
+            "type": "string",
+            "format": "--log-file {value}",
+            "help": "Print output to a file."
           },
           {
             "name": "FromBootstrapper",
             "type": "bool",
             "format": "--from-bootstrapper",
-            "help": "Call coming from the '--run' feature of the bootstrapper."
+            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
@@ -231,58 +219,52 @@
       "settingsClass": {
         "properties": [
           {
-            "name": "Url",
-            "type": "string",
-            "format": "url {value}",
-            "help": "Url of the NuGet feed."
-          },
-          {
             "name": "File",
             "type": "string",
             "format": "file {value}",
             "help": "Path to the package."
           },
           {
+            "name": "Url",
+            "type": "string",
+            "format": "--url {value}",
+            "help": "URL of the NuGet feed."
+          },
+          {
             "name": "ApiKey",
             "type": "string",
-            "format": "apikey {value}",
-            "help": "Optionally specify your API key on the command line. Otherwise uses the value of the `nugetkey` environment variable."
+            "format": "--api-key {value}",
+            "help": "API key for the URL. Default is the <c>NUGET_KEY</c> environment variable."
           },
           {
             "name": "Endpoint",
             "type": "string",
-            "format": "endpoint {value}",
-            "help": "Optionally specify a custom api endpoint to push to. Defaults to `/api/v2/package`."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Enable verbose console output for the paket process."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Specify a log file for the paket process."
+            "format": "--endpoint {value}",
+            "help": "API endpoint to push to. Default is <em>/api/v2/package</em>."
           },
           {
             "name": "Silent",
             "type": "bool",
             "format": "--silent",
-            "help": "Suppress console output for the paket process."
+            "help": "Suppress console output."
           },
           {
-            "name": "ShowVersion",
+            "name": "Verbose",
             "type": "bool",
-            "format": "--version",
-            "help": "Display the version."
+            "format": "--verbose",
+            "help": "Print detailed information to the console."
+          },
+          {
+            "name": "LogFile",
+            "type": "string",
+            "format": "--log-file {value}",
+            "help": "Print output to a file."
           },
           {
             "name": "FromBootstrapper",
             "type": "bool",
             "format": "--from-bootstrapper",
-            "help": "Call coming from the '--run' feature of the bootstrapper."
+            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
@@ -295,116 +277,111 @@
           {
             "name": "OutputDirectory",
             "type": "string",
-            "format": "output {value}",
-            "help": "Output directory to put .nupkg files."
+            "format": "{value}",
+            "help": "Output directory for .nupkg files."
           },
           {
             "name": "BuildConfiguration",
             "type": "string",
-            "format": "buildconfig {value}",
-            "help": "Optionally specify build configuration that should be packaged (defaults to Release)."
+            "format": "--build-config {value}",
+            "help": "Build configuration that should be packaged. Default is <em>Release</em>."
           },
           {
             "name": "BuildPlatform",
             "type": "string",
-            "format": "buildplatform {value}",
-            "help": "Optionally specify build platform that should be packaged (if not provided or empty, checks all known platform targets)."
+            "format": "--build-platform {value}",
+            "help": "Build platform that should be packaged. Default is <em>check all known platform targets</em>."
           },
           {
             "name": "PackageVersion",
             "type": "string",
-            "format": "version {value}",
-            "help": "Specify version of the package."
+            "format": "--version {value}",
+            "help": "Version of the package."
           },
           {
             "name": "TemplateFile",
             "type": "string",
-            "format": "templatefile {value}",
-            "help": "Allows to specify a single template file."
+            "format": "--template {value}",
+            "help": "Pack a single paket.template file."
           },
           {
             "name": "Exclude",
-            "type": "string",
-            "format": "exclude {value}",
-            "help": "Exclude template file by id."
+            "type": "List<string>",
+            "format": "--exclude {value}",
+            "help": "Exclude paket.template file by package ID."
           },
           {
-            "name": "SpecificVersion",
-            "type": "string",
-            "format": "specific-version {value}",
-            "help": "Specifies a version number for template with given id."
+            "name": "SpecificVersions",
+            "type": "Dictionary<string, string>",
+            "format": "--specific-version {value}",
+            "itemFormat": "{key} {value}",
+            "help": "Package IDs with version numbers."
           },
           {
             "name": "ReleaseNotes",
             "type": "string",
-            "format": "releaseNotes {value}",
-            "help": "Specify relase notes for the package."
+            "format": "--release-notes {value}",
+            "help": "Specify release notes for the package."
           },
           {
             "name": "LockDependencies",
             "type": "bool",
-            "format": "lock-dependencies",
-            "help": "Get the version requirements from paket.lock instead of paket.dependencies."
+            "format": "--lock-dependencies",
+            "help": "Use version requirements from paket.lock instead of paket.dependencies."
           },
           {
             "name": "MinimumFromLockFile",
             "type": "bool",
-            "format": "minimum-from-lock-file",
-            "help": "Get the version requirements from paket.lock instead of paket.dependencies, and add them as a minimum version. `lock-dependencies` will over-ride this option."
+            "format": "--minimum-from-lock-file",
+            "help": "Use version requirements from paket.lock instead of paket.dependencies, and add them as a minimum version. <c>--lock-dependencies</c> will over-ride this option."
           },
           {
             "name": "PinProjectReferences",
             "type": "bool",
-            "format": "pin-project-references",
-            "help": "Pin dependencies generated from project references (=) instead of using minimum (>=) for version specification.  If `lock-dependencies` is specified, project references will be pinned even if this option is not specified."
+            "format": "--pin-project-references",
+            "help": "Pin dependencies generated from project references (=) instead of using minimum (>=) for version specification.  If <c>--lock-dependencies</c> is specified, project references will be pinned even if this option is not specified."
           },
           {
             "name": "Symbols",
             "type": "bool",
-            "format": "symbols",
+            "format": "--symbols",
             "help": "Build symbol/source packages in addition to library/content packages."
           },
           {
             "name": "IncludeReferencedProjects",
             "type": "bool",
-            "format": "include-referenced-projects",
+            "format": "--include-referenced-projects",
             "help": "Include symbol/source from referenced projects."
           },
           {
             "name": "ProjectUrl",
             "type": "string",
-            "format": "project-url {value}",
+            "format": "--project-url {value}",
             "help": "Url to the projects home page."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Enable verbose console output for the paket process."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Specify a log file for the paket process."
           },
           {
             "name": "Silent",
             "type": "bool",
             "format": "--silent",
-            "help": "Suppress console output for the paket process."
+            "help": "Suppress console output."
           },
           {
-            "name": "ShowVersion",
+            "name": "Verbose",
             "type": "bool",
-            "format": "--version",
-            "help": "Display the version."
+            "format": "--verbose",
+            "help": "Print detailed information to the console."
+          },
+          {
+            "name": "LogFile",
+            "type": "string",
+            "format": "--log-file {value}",
+            "help": "Print output to a file."
           },
           {
             "name": "FromBootstrapper",
             "type": "bool",
             "format": "--from-bootstrapper",
-            "help": "Call coming from the '--run' feature of the bootstrapper."
+            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
