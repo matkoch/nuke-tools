@@ -54,17 +54,15 @@
             "name": "AssemblyFilters",
             "type": "List<string>",
             "format": "-assemblyfilters:{value}",
-            "separator": " ",
-            "quoteMultiple": true,
-            "help": "Optional list of assemblies that should be included or excluded in the report. Default is +*."
+            "separator": ";",
+            "help": "Optional list of assemblies that should be included (+) or excluded (-) in the report. Default is +*."
           },
           {
             "name": "ClassFilters",
             "type": "List<string>",
             "format": "-classfilters:{value}",
-            "separator": " ",
-            "quoteMultiple": true,
-            "help": "Optional list of classes that should be included or excluded in the report. Exclusion filters take precedence over inclusion filters. Wildcards are allowed. Default is +*."
+            "separator": ";",
+            "help": "Optional list of classes that should be included (+) or excluded (-) in the report. Exclusion filters take precedence over inclusion filters. Wildcards are allowed. Default is +*."
           },
           {
             "name": "Verbosity",
