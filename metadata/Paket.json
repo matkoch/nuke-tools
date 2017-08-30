@@ -234,6 +234,7 @@
             "name": "ApiKey",
             "type": "string",
             "format": "--api-key {value}",
+            "secret": true,
             "help": "API key for the URL. Default is the <c>NUGET_KEY</c> environment variable."
           },
           {
