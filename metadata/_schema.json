@@ -36,7 +36,7 @@
     },
     "packageExecutable": {
       "type": "string",
-      "description": "Exact name of the main executable found in the /tools folder. Case-sensitive."
+      "description": "Exact name of the main executable found in the './tools' folder. Case-sensitive."
     },
     "customExecutable": {
       "type": "boolean",
@@ -51,6 +51,14 @@
       "items": {
         "type": "object",
         "properties": {
+          "help": {
+            "type": "string",
+            "description": "Help or introduction text to for the tool. Can contain HTML tags for better formatting."
+          },
+          "customStart": {
+            "type": "boolean",
+            "description": "Custom start implementation."
+          },
           "postfix": {
             "type": "string",
             "description": "Postfix for the task alias."
@@ -64,39 +72,89 @@
             "properties": {
               "properties": {
                 "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "Name of the property."
-                    },
-                    "type": {
-                      "type": "string",
-                      "description": "Type of the property."
-                    },
-                    "assertion": {
-                      "type": "string",
-                      "enum": [ "NotNull", "File", "Directory", "FileOrNull", "DirectoryOrNull" ],
-                      "description": "Automatic assertion."
-                    },
-                    "format": {
-                      "type": "string",
-                      "description": "Argument formatting for the property. '{value}' is replaced by the value of the property."
-                    },
-                    "createOverload": {
-                      "type": "boolean",
-                      "description": "Specifies that an overload for the property should be created."
-                    },
-                    "help": {
-                      "type": "string",
-                      "description": "Help text for the property."
-                    } 
-                  }
-                }
-              } 
+                "items": { "$ref": "#/definitions/property" }
+              }
             }
           }
+        }
+      }
+    },
+    "commonTaskProperties": {
+      "type": "array",
+      "description": "Common properties for all tasks.",
+      "items": { "$ref": "#/definitions/property" }
+    },
+    "enumerations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the enumeration."
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      } 
+    } 
+  },
+  "definitions": {
+    "property": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the property."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of the property. I.e., bool, int, string, List<int>, Dictionary<string, object>, Lookup<string, int>"
+        },
+        "format": {
+          "type": "string",
+          "description": "Argument formatting for the property. '{value}' is replaced by the value of the property."
+        },
+        "itemFormat": {
+          "type": "string",
+          "description": "Item formatting for dictionaries. '{key}' and '{value}' are replaced accordingly."
+        },
+        "separator": {
+          "type": "string",
+          "description": "Separator used for items of collection types."
+        },
+        "disallowedCharacter": {
+          "type": "string",
+          "description": "Character that must be double-quoted."
+        },
+        "customValue": {
+          "type": "boolean",
+          "description": "Custom implementation of value presentation."
+        },
+        "noArgument": {
+          "type": "boolean",
+          "description": "Omits argument parsing."
+        },
+        "assertion": {
+          "type": "string",
+          "enum": [ "NotNull", "File", "Directory", "FileOrNull", "DirectoryOrNull" ],
+          "description": "Automatic assertion."
+        },
+        "secret": {
+          "type": "boolean",
+          "description": "Specifies that the value is secret and should be hidden in output."
+        },
+        "createOverload": {
+          "type": "boolean",
+          "description": "Specifies that an overload for the property should be created."
+        },
+        "help": {
+          "type": "string",
+          "description": "Help text for the property."
         }
       }
     }
