@@ -99,30 +99,6 @@
             "type": "bool",
             "format": "--touch-affected-refs",
             "help": "Touch project files referencing affected dependencies, to help incremental build tools detecting the change."
-          },
-          {
-            "name": "Silent",
-            "type": "bool",
-            "format": "--silent",
-            "help": "Suppress console output."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Print detailed information to the console."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Print output to a file."
-          },
-          {
-            "name": "FromBootstrapper",
-            "type": "bool",
-            "format": "--from-bootstrapper",
-            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
@@ -185,30 +161,6 @@
             "type": "string",
             "format": "--target-framework {value}",
             "help": "Restore only for the specified target framework."
-          },
-          {
-            "name": "Silent",
-            "type": "bool",
-            "format": "--silent",
-            "help": "Suppress console output."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Print detailed information to the console."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Print output to a file."
-          },
-          {
-            "name": "FromBootstrapper",
-            "type": "bool",
-            "format": "--from-bootstrapper",
-            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
@@ -242,30 +194,6 @@
             "type": "string",
             "format": "--endpoint {value}",
             "help": "API endpoint to push to. Default is <em>/api/v2/package</em>."
-          },
-          {
-            "name": "Silent",
-            "type": "bool",
-            "format": "--silent",
-            "help": "Suppress console output."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Print detailed information to the console."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Print output to a file."
-          },
-          {
-            "name": "FromBootstrapper",
-            "type": "bool",
-            "format": "--from-bootstrapper",
-            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
@@ -359,33 +287,35 @@
             "type": "string",
             "format": "--project-url {value}",
             "help": "Url to the projects home page."
-          },
-          {
-            "name": "Silent",
-            "type": "bool",
-            "format": "--silent",
-            "help": "Suppress console output."
-          },
-          {
-            "name": "Verbose",
-            "type": "bool",
-            "format": "--verbose",
-            "help": "Print detailed information to the console."
-          },
-          {
-            "name": "LogFile",
-            "type": "string",
-            "format": "--log-file {value}",
-            "help": "Print output to a file."
-          },
-          {
-            "name": "FromBootstrapper",
-            "type": "bool",
-            "format": "--from-bootstrapper",
-            "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
           }
         ]
       }
+    }
+  ],
+  "commonTaskProperties": [
+    {
+      "name": "Silent",
+      "type": "bool",
+      "format": "--silent",
+      "help": "Suppress console output."
+    },
+    {
+      "name": "Verbose",
+      "type": "bool",
+      "format": "--verbose",
+      "help": "Print detailed information to the console."
+    },
+    {
+      "name": "LogFile",
+      "type": "string",
+      "format": "--log-file {value}",
+      "help": "Print output to a file."
+    },
+    {
+      "name": "FromBootstrapper",
+      "type": "bool",
+      "format": "--from-bootstrapper",
+      "help": "Call coming from the <c>--run</c> feature of the bootstrapper."
     }
   ]
 }
