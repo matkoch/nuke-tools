@@ -1,0 +1,7 @@
+﻿TODO:
+- parameter defaults
+- exit codes (xunit)
+- parameter examples (dotCover ProcessFilters)
+- output parsing (stdin, file, custom, json)
+- issue parsing (warnings/errors)
+- parameter sets
