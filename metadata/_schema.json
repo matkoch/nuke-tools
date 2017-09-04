@@ -59,6 +59,10 @@
             "type": "boolean",
             "description": "Custom start implementation."
           },
+          "returnType": {
+            "type": "string",
+            "description": "Return type of the task."
+          },
           "postfix": {
             "type": "string",
             "description": "Postfix for the task alias."
