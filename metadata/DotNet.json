@@ -10,7 +10,8 @@
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-run#//div[@class='content']",
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-restore#//div[@class='content']",
     "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-pack#//div[@class='content']",
-    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build#//div[@class='content']"
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build#//div[@class='content']",
+    "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish#//div[@class='content']"
   ],
   "name": "DotNet",
   "officialUrl": "https://docs.microsoft.com/en-us/dotnet/core/tools/",
