@@ -59,6 +59,14 @@
             "type": "boolean",
             "description": "Custom start implementation."
           },
+          "customAssertion": {
+            "type": "boolean",
+            "description": "Custom process assertion implementation."
+          },
+          "returnType": {
+            "type": "string",
+            "description": "Return type of the task."
+          },
           "postfix": {
             "type": "string",
             "description": "Postfix for the task alias."
@@ -84,6 +92,11 @@
       "description": "Common properties for all tasks.",
       "items": { "$ref": "#/definitions/property" }
     },
+    "dataClasses": {
+      "type": "array",
+      "description": "Common used data classes.",
+      "items": { "$ref" : "#/definitions/property" }
+    }, 
     "enumerations": {
       "type": "array",
       "items": {
