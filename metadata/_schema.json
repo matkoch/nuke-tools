@@ -95,7 +95,19 @@
     "dataClasses": {
       "type": "array",
       "description": "Common used data classes.",
-      "items": { "$ref" : "#/definitions/property" }
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the data class."
+          },
+          "properties": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/property" }
+          }
+        }
+      }
     }, 
     "enumerations": {
       "type": "array",
