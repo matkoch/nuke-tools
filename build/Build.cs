@@ -22,16 +22,23 @@ class Build : NukeBuild
     //[GitVersion] readonly GitVersion GitVersion;
     //[GitRepository] readonly GitRepository GitRepository;
     //[Parameter] readonly string MyGetApiKey;
+    [GitRepository] readonly GitRepository GitRepository;
 
+    [Parameter] string GitUsername;
 
+    [Parameter] string GitEmail;
     // This is the application entry point for the build.
     // It also defines the default target to execute.
-    public static int Main () => Execute<Build>(x => x.Clean);
+    public static int Main () => Execute<Build>(x => x.DownloadReferences);
 
 
     Target Clean => _ => _
-            // Disabled for safety.
-            .OnlyWhen(() => false)
-            .Executes(() => DeleteDirectories(GlobDirectories(SourceDirectory, "**/bin", "**/obj")))
+            .Executes(() => EnsureCleanDirectory(SolutionDirectory/"references"))
             .Executes(() => EnsureCleanDirectory(OutputDirectory));
+
+
+    Target DownloadReferences => _ => _
+        .DependsOn(Clean)
+        .Executes(() => ReferenceHelper.DownloadReferences(Instance.SolutionDirectory / "metadata",Instance.SolutionDirectory / "references"));
+
 }
