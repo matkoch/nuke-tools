@@ -1,39 +1,38 @@
-﻿using System;
+﻿// Copyright Matthias Koch 2017.
+// Distributed under the MIT License.
+// https://github.com/nuke-build/nuke/blob/master/LICENSE
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Nuke.Core.Utilities.Collections;
 
 public static class ReferenceHelper
 {
-
     public static void DownloadReferences(string metaFiles, string generation)
     {
-       
-      DownloadReferencesAsync(metaFiles,generation).Wait();
-
+        DownloadReferencesAsync(metaFiles, generation).Wait();
     }
 
-    private static async Task DownloadReferencesAsync(string metaFiles, string generation)
+    static async Task DownloadReferencesAsync(string metaFiles, string generation)
     {
-        var files = Directory.GetFiles(metaFiles, "*.json", SearchOption.TopDirectoryOnly).Where(x => !x.EndsWith("_schema.json")).Select(f =>
-        {
-            var tool = Load(f, generation);
-            return UpdateReferences(tool);
-        });
+        var files = Directory.GetFiles(metaFiles, "*.json", SearchOption.TopDirectoryOnly)
+            .Where(x => !x.EndsWith("_schema.json")).Select(f =>
+            {
+                var tool = Load(f, generation);
+                return UpdateReferences(tool);
+            });
         await Task.WhenAll(files);
     }
 
-    private static Tool Load(string file, string generation)
+    static Tool Load(string file, string generation)
     {
         var content = File.ReadAllText(file);
         var tool = JsonConvert.DeserializeObject<Tool>(content);
@@ -49,33 +48,16 @@ public static class ReferenceHelper
         return tool;
     }
 
-    [UsedImplicitly(ImplicitUseKindFlags.Assign, ImplicitUseTargetFlags.WithMembers)]
-    [DebuggerDisplay("{" + nameof(DefinitionFile) + "}")]
-    private class Tool
+    static async Task UpdateReferences(Tool tool)
     {
-        [JsonIgnore]
-        public string DefinitionFile { get; set; }
-        [JsonIgnore]
-        public string RepositoryUrl { get; set; }
-
-        public string Name { get; set; }
-        public string GenerationFileBase { get; set; }
-        public List<string> References { get; set; }
-
-
-    }
-
-    private static  async Task UpdateReferences(Tool tool)
-    {
-        var tasks = Enumerable.Range(0, tool.References.Count)
+        var tasks = Enumerable.Range(start: 0, count: tool.References.Count)
             .Select(i =>
                 UpdateReference(tool, i));
 
-       await Task.WhenAll(tasks);
-
+        await Task.WhenAll(tasks);
     }
 
-    private static async Task UpdateReference(Tool tool,int referenceIndex)
+    static async Task UpdateReference(Tool tool, int referenceIndex)
     {
         try
         {
@@ -86,11 +68,13 @@ public static class ReferenceHelper
         }
         catch (Exception exception)
         {
-            Console.Error.WriteLine($"Couldn't update reference #{referenceIndex} for {Path.GetFileName(tool.DefinitionFile)}:");
+            Console.Error.WriteLine(
+                $"Couldn't update reference #{referenceIndex} for {Path.GetFileName(tool.DefinitionFile)}:");
             Console.Error.WriteLine(exception.Message);
         }
     }
-    private static async Task<string> GetReferenceContent(string reference)
+
+    static async Task<string> GetReferenceContent(string reference)
     {
         var referenceValues = reference.Split('#');
 
@@ -108,7 +92,23 @@ public static class ReferenceHelper
         return document.DocumentNode.SelectSingleNode(referenceValues[1]).InnerText;
     }
 
-    private class AutomaticDecompressingWebClient : WebClient
+    [UsedImplicitly(ImplicitUseKindFlags.Assign, ImplicitUseTargetFlags.WithMembers)]
+    [DebuggerDisplay("{" + nameof(DefinitionFile) + "}")]
+    class Tool
+    {
+        [JsonIgnore]
+        public string DefinitionFile { get; set; }
+
+        public string GenerationFileBase { get; set; }
+
+        public string Name { get; set; }
+        public List<string> References { get; set; }
+
+        [JsonIgnore]
+        public string RepositoryUrl { get; set; }
+    }
+
+    class AutomaticDecompressingWebClient : WebClient
     {
         protected override WebRequest GetWebRequest(Uri address)
         {
@@ -120,5 +120,4 @@ public static class ReferenceHelper
             return request;
         }
     }
-
 }
